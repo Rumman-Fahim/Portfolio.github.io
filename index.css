@@ -8,7 +8,7 @@ body {
   }
 }
 /* ----------------------------------------------------------------- Medium Screen (md) */
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   body {
     background-color: blue;
   }
