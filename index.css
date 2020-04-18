@@ -1,8 +1,21 @@
-body{
-	background-color: magenta;
+body {
+  background-color: white;
 }
-@media only screen and (max-width: 700px) {
-	body{
-		background-color: green;
-	}
+/* ----------------------------------------------------------------- Small Screen (sm) */
+@media (max-width: 768px) {
+  body {
+    background-color: yellow;
+  }
+}
+/* ----------------------------------------------------------------- Medium Screen (md) */
+@media (min-width: 768px) {
+  body {
+    background-color: blue;
+  }
+}
+/* ----------------------------------------------------------------- Large Screen (lg) */
+@media (min-width: 992px) {
+  body {
+    background-color: olive;
+  }
 }
