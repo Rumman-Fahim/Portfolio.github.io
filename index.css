@@ -1,21 +1,27 @@
 body {
   background-color: white;
 }
-/* ----------------------------------------------------------------- Small Screen (sm) */
+/* ------------------------------------------------------------- Extra Small Screen (xs) */
 @media (max-width: 768px) {
   body {
     background-color: yellow;
   }
 }
-/* ----------------------------------------------------------------- Medium Screen (md) */
+/* ------------------------------------------------------------- Small Screen  (sm) */
 @media (min-width: 769px) {
+  body {
+    background-color: green;
+  }
+}
+/* ------------------------------------------------------------- Medium Screen (md) */
+@media (min-width: 992px) {
   body {
     background-color: blue;
   }
 }
-/* ----------------------------------------------------------------- Large Screen (lg) */
+/* ------------------------------------------------------------ Large Screen   (lg) */
 @media (min-width: 1200px) {
   body {
-    background-color: olive;
+    background-color: pink;
   }
 }
