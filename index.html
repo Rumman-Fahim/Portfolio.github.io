@@ -9,11 +9,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			$('.navbar').affix({
-			        offset: {
-			            top: function() { return 697; }
-			        }
-			    })
+			$(function() {
+			  // Initialize affix
+			  $('.navbar').affix({
+			    offset: {
+			      top: function() {
+			        return  function() { return 697; }
+			      }
+			    }
+			  });
+
+			  // Checking on page load: is [.navbar] affixed?
+			  if ( $('.navbar').hasClass('affix') ) {
+			    console.info('Affix is fired');
+			    // Do something
+			  }
+			});
 		  	//SMOOTH SCROLLING
 		  	$("a").on('click', function(event) {
 			    // Make sure this.hash has a value before overriding default behavior
