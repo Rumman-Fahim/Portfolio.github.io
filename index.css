@@ -1,21 +1,49 @@
 /* ---------------------------------------------------------------------- Color Scheme + Font */
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Candal&family=Homenaje&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Candal&family=Gotu&family=Montserrat&family=Source+Code+Pro&display=swap');
 :root {
     --highlight: #66FCF1;
     --highlightShade: #45A29E;
     --contrast: #0B0C10;
     --contrastShade:  #1F2833;
     --light: #C5C6C7;
-    --introFont: 'Black Han Sans', sans-serif;
     --titleFont: 'Candal', sans-serif;
-    --bodyFont: 'Homenaje', sans-serif;
+    --bodyFont1: 'Gotu', sans-serif;
+    --bodyFont2: 'Montserrat', sans-serif;
+    --bodyFont3: 'Source Code Pro', monospace;
 }
 body{
-    font-family: var(--bodyFont );
+    font-family: var(--bodyFont1 );
+    overflow-x: hidden;
+}
+.affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
+  }
+  .navbar {
+    margin: 0; 
+    width: 100%;
+  }
+
+  .affix ~ .container-fluid {
+   position: relative;
+   top: 50px;
+  }
+.active a{
+    background-color:  var(--highlightShade) !important;
+}
+.icon-bar{
+    background-color: var(--highlight) !important;
+}
+.navbar-toggle{
+    background-color: transparent; 
+    border:none;
 }
 /* ---------------------------------------------------------------------- Home Section */
 #Section_Home{
 	height: 700px;
+    background-color: white;
+    z-index: 1;
 }
 .bg {
   	animation:slide 3s ease-in-out infinite alternate;
@@ -23,10 +51,10 @@ body{
   	bottom:0;
   	left:-50%;
   	opacity:.5;
-  	position:fixed;
+  	position: absolute;
   	right:-50%;
   	top:0;
-  	z-index:-1;
+    z-index: -1;
 }
 .bg2 {
   	animation-direction:alternate-reverse;
@@ -35,25 +63,46 @@ body{
 .bg3 {
   	animation-duration:5s;
 }
-
 .content {
 	color: white;
 	font-family: var(--titleFont);
-  	box-sizing:border-box;
     position: relative;
     text-align:center;
   	left:50%;
   	top:50%;
   	transform:translate(-50%, -50%);
+}
+.content div a{
+    position: relative;
+    padding: 15px 25px;
+    letter-spacing: 3px;
+    color: white;
+    border: 5px solid var(--highlight);
+    margin-top: 100px;
+    text-decoration: none;
+    transition:0.5s;
+    transform: scaleX(1);
+}
+.content div a:hover{
+    border: 0px solid var(--highlight);
+}
+.content div a:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #56CFC7;
+    transform-origin: left;
+    transition: transform 0.5s ease;
+    transform: scaleX(0);
     z-index: -1;
 }
-.content button{
-    padding: 2vmin;
-    letter-spacing: 3px;
-    border: 5px solid var(--highlight);
-    background-color: transparent;
-    color: white;
-    margin-top: 2%;
+.content div a:hover:before{
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    transform: scaleX(1);
 }
 @keyframes slide {
   	0% {
@@ -63,13 +112,12 @@ body{
     	transform:translateX(25%);
   	}
 }
+
 /* ---------------------------------------------------------------------- About Section */
 #Section_About{
 	height: 700px;
-	border: 2px solid black;
-	background-color: white;
+    background-color: white;
 }
-
 /* ---------------------------------------------------------------------- Portfolio Section */
 #Section_Portfolio{
 	height: 700px;
