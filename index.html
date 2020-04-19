@@ -9,15 +9,53 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			$(function() {
-			  $(window).scroll(function() {
-			    var aTop = $('Section_Home').height();
-			    if ($(this).scrollTop() >= aTop) {
-			     $('.navbar').css( "position", "fixed" );
-			     $('.navbar').css( "top", "0" );
-			     $('.navbar').css( "width", "100%" );
+			// STICKY NAVBAR
+			$(window).scroll(function() {    
+			    var scroll = $(window).scrollTop();
+
+			    if (scroll >= 697) {
+			        $(".navbar").addClass("navbar-fixed-top");
+			    } else {
+			        $(".navbar").removeClass("navbar-fixed-top");
+			    }   
+			});
+
+			// ACTIVE NAV 
+			$(document).on('scroll', function() {
+				var home = $('#Section_Home').outerHeight();
+				var about = $('#Section_About').outerHeight();
+				var portfolio = $('#Section_Portfolio').outerHeight();
+				var contact = $('#Section_Contact').outerHeight();
+
+				var sectionOne = home; // 700
+				var sectionTwo = home + about; //1400
+				var sectionThree = home + about + portfolio; //2100
+				var sectionFour = home + about + portfolio + contact; //2800
+				
+			    if( $(this).scrollTop() >= 0 &&  $(this).scrollTop() < sectionOne){
+			       	$("#nav_Home").addClass("active");
+			       	$("#nav_About").removeClass("active");
+			       	$("#nav_Portfolio").removeClass("active");
+			       	$("#nav_Contact").removeClass("active");
+			    } 
+			    else if( $(this).scrollTop() >= sectionOne &&  $(this).scrollTop() < sectionTwo ){
+			    	$("#nav_Home").removeClass("active");
+			       	$("#nav_About").addClass("active");
+			       	$("#nav_Portfolio").removeClass("active");
+			       	$("#nav_Contact").removeClass("active");
 			    }
-			  });
+			    else if( $(this).scrollTop() >= sectionTwo &&  $(this).scrollTop() < sectionThree ){
+			    	$("#nav_Home").removeClass("active");
+			       	$("#nav_About").removeClass("active");
+			       	$("#nav_Portfolio").addClass("active");
+			       	$("#nav_Contact").removeClass("active");
+			    }
+			    else if( $(this).scrollTop() >= sectionThree &&  $(this).scrollTop() < sectionFour ){
+			    	$("#nav_Home").removeClass("active");
+			       	$("#nav_About").removeClass("active");
+			       	$("#nav_Portfolio").removeClass("active");
+			       	$("#nav_Contact").addClass("active");
+			    }
 			});
 
 		  	//SMOOTH SCROLLING
@@ -57,7 +95,7 @@
 	</div>
 
 	<!-- ------------------------------------------------------------------------------ NavBar -->
-	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="697">
+	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -68,10 +106,10 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#Section_Home">Home</a></li>
-					<li><a href="#Section_About">About</a></li>
-					<li><a href="#Section_Portfolio">Portfolio</a></li>
-					<li><a href="#Section_Contact">Contact</a></li>
+					<li id="nav_Home"><a href="#Section_Home">Home</a></li>
+					<li id="nav_About"><a href="#Section_About">About</a></li>
+					<li id="nav_Portfolio"><a href="#Section_Portfolio">Portfolio</a></li>
+					<li id="nav_Contact"><a href="#Section_Contact">Contact</a></li>
 				</ul>
 			</div>
 		</div>
