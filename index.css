@@ -50,13 +50,16 @@ body{
   	animation-duration:5s;
 }
 .content {
-	color: white;
-	font-family: var(--titleFont);
+    color: white;
+    font-family: var(--titleFont);
     position: relative;
     text-align:center;
   	left:50%;
-  	top:50%;
+  	top: 45%;
   	transform:translate(-50%, -50%);
+}
+.content div{
+    margin-top: 6%;
 }
 .content div a{
     position: relative;
@@ -64,7 +67,7 @@ body{
     letter-spacing: 3px;
     color: white;
     border: 5px solid var(--highlight);
-    margin-top: 100px;
+    margin-top: 200px;
     text-decoration: none;
     transition:0.5s;
     transform: scaleX(1);
@@ -127,20 +130,28 @@ body{
 
 /* ---------------------------------------------------------------------- Extra Small Screen (xs) */
 @media (max-width: 768px) {
-  
+    .content div{
+        margin-top: 12%;
+    }
 }
 
 /* ---------------------------------------------------------------------- Small Screen  (sm) */
 @media (min-width: 769px) {
-  
+    .content div{
+        margin-top: 12%;
+    }
 }
 
 /* ---------------------------------------------------------------------- Medium Screen (md) */
 @media (min-width: 992px) {
- 
+    .content div{
+        margin-top: 6%;
+    }
 }
 
 /* ---------------------------------------------------------------------- Large Screen  (lg) */
 @media (min-width: 1380px) {
-    
+    .content div{
+        margin-top: 6%;
+    }
 }
