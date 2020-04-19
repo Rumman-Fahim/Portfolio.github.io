@@ -10,21 +10,16 @@
 	<script>
 		$(document).ready(function(){
 			$(function() {
-			  // Initialize affix
-			  $('.navbar').affix({
-			    offset: {
-			      top: function() {
-			        return  function() { return 697; }
-			      }
+			  $(window).scroll(function() {
+			    var aTop = $('Section_Home').height();
+			    if ($(this).scrollTop() >= aTop) {
+			     $('.navbar').css( "position", "fixed" );
+			     $('.navbar').css( "top", "0" );
+			     $('.navbar').css( "width", "100%" );
 			    }
 			  });
-
-			  // Checking on page load: is [.navbar] affixed?
-			  if ( $('.navbar').hasClass('affix') ) {
-			    console.info('Affix is fired');
-			    // Do something
-			  }
 			});
+
 		  	//SMOOTH SCROLLING
 		  	$("a").on('click', function(event) {
 			    // Make sure this.hash has a value before overriding default behavior
