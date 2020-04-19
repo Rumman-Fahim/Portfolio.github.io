@@ -1,31 +1,114 @@
-body {
-  background-color: white;
+/* ---------------------------------------------------------------------- Color Scheme + Font */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Candal&family=Homenaje&display=swap');
+:root {
+    --highlight: #66FCF1;
+    --highlightShade: #45A29E;
+    --contrast: #0B0C10;
+    --contrastShade:  #1F2833;
+    --light: #C5C6C7;
+    --introFont: 'Black Han Sans', sans-serif;
+    --titleFont: 'Candal', sans-serif;
+    --bodyFont: 'Homenaje', sans-serif;
+}
+body{
+    font-family: var(--bodyFont );
+}
+/* ---------------------------------------------------------------------- Home Section */
+#Section_Home{
+	height: 700px;
+}
+.bg {
+  	animation:slide 3s ease-in-out infinite alternate;
+  	background-image: linear-gradient(-60deg, #0B0C10 50%, #1F2833 50%);
+  	bottom:0;
+  	left:-50%;
+  	opacity:.5;
+  	position:fixed;
+  	right:-50%;
+  	top:0;
+  	z-index:-1;
+}
+.bg2 {
+  	animation-direction:alternate-reverse;
+  	animation-duration:4s;
+}
+.bg3 {
+  	animation-duration:5s;
 }
 
-/* ------------------------------------------------------------- Extra Small Screen (xs) */
+.content {
+	color: white;
+	font-family: var(--titleFont);
+  	box-sizing:border-box;
+    position: relative;
+    text-align:center;
+  	left:50%;
+  	top:50%;
+  	transform:translate(-50%, -50%);
+    z-index: -1;
+}
+.content button{
+    padding: 2vmin;
+    letter-spacing: 3px;
+    border: 5px solid var(--highlight);
+    background-color: transparent;
+    color: white;
+    margin-top: 2%;
+}
+@keyframes slide {
+  	0% {
+    	transform:translateX(-25%);
+  	}
+  	100% {
+    	transform:translateX(25%);
+  	}
+}
+/* ---------------------------------------------------------------------- About Section */
+#Section_About{
+	height: 700px;
+	border: 2px solid black;
+	background-color: white;
+}
+
+/* ---------------------------------------------------------------------- Portfolio Section */
+#Section_Portfolio{
+	height: 700px;
+	border: 2px solid black;
+	background-color: white;
+}
+
+/* ---------------------------------------------------------------------- Contact Section */
+#Section_Contact{
+	height: 700px;
+	border: 2px solid black;
+	background-color: white;
+}
+
+/* ---------------------------------------------------------------------- Footer Section */
+#Section_Footer{
+	height: 700px;
+	border: 2px solid black;
+	background-color: white;
+}
+
+/* ---------------------------------------------------------------------- Extra Small Screen (xs) */
 @media (max-width: 768px) {
-  body {
-    background-color: yellow;
-  }
+  
 }
 
-/* ------------------------------------------------------------- Small Screen  (sm) */
+/* ---------------------------------------------------------------------- Small Screen  (sm) */
 @media (min-width: 769px) {
-  body {
-    background-color: green;
-  }
+  
 }
 
-/* ------------------------------------------------------------- Medium Screen (md) */
+/* ---------------------------------------------------------------------- Medium Screen (md) */
 @media (min-width: 992px) {
-  body {
-    background-color: blue;
-  }
+ 
 }
 
-/* ------------------------------------------------------------ Large Screen   (lg) */
+/* ---------------------------------------------------------------------- Large Screen  (lg) */
 @media (min-width: 1380px) {
-  body {
-    background-color: pink;
-  }
+    .content {
+        width: 40%;
+    }
 }
