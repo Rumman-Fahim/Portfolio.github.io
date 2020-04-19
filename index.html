@@ -31,7 +31,7 @@
 				var sectionTwo = home + about; //1400
 				var sectionThree = home + about + portfolio; //2100
 				var sectionFour = home + about + portfolio + contact; //2800
-				
+
 			    if( $(this).scrollTop() >= 0 &&  $(this).scrollTop() < sectionOne){
 			       	$("#nav_Home").addClass("active");
 			       	$("#nav_About").removeClass("active");
@@ -82,7 +82,8 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-	<!-- ------------------------------------------------------------------------------ Home -->
+	<div style="overflow: hidden;">
+		<!-- ------------------------------------------------------------------------------ Home -->
 	<div id="Section_Home" class="col-xs-12">
 		<div class="bg"></div>
 		<div class="bg bg2"></div>
@@ -130,5 +131,8 @@
 
 	<!-- ------------------------------------------------------------------------------ Footer -->
 	<div id="Section_Footer" class="col-xs-12"></div>
+
+	</div>
+	
 </body>
 </html>
