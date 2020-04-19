@@ -13,8 +13,8 @@
 }
 body{
     font-family: var(--bodyFont1 );
-    overflow: hidden;
 }
+
 .active a{
     background-color:  var(--highlightShade) !important;
 }
