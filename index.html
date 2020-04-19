@@ -1,138 +1,138 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Portfolio Page</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Bootstrap & jQuery Links -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			// STICKY NAVBAR
-			$(window).scroll(function() {    
-			    var scroll = $(window).scrollTop();
+	<head>
+		<title>Portfolio Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap & jQuery Links -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				// STICKY NAVBAR
+				$(window).scroll(function() {    
+				    var scroll = $(window).scrollTop();
 
-			    if (scroll >= 697) {
-			        $(".navbar").addClass("navbar-fixed-top");
-			    } else {
-			        $(".navbar").removeClass("navbar-fixed-top");
-			    }   
+				    if (scroll >= 697) {
+				        $(".navbar").addClass("navbar-fixed-top");
+				    } else {
+				        $(".navbar").removeClass("navbar-fixed-top");
+				    }   
+				});
+
+				// ACTIVE NAV 
+				$(document).on('scroll', function() {
+					var home = $('#Section_Home').outerHeight();
+					var about = $('#Section_About').outerHeight();
+					var portfolio = $('#Section_Portfolio').outerHeight();
+					var contact = $('#Section_Contact').outerHeight();
+
+					var sectionOne = home; // 700
+					var sectionTwo = home + about; //1400
+					var sectionThree = home + about + portfolio; //2100
+					var sectionFour = home + about + portfolio + contact; //2800
+
+				    if( $(this).scrollTop() >= 0 &&  $(this).scrollTop() < sectionOne){
+				       	$("#nav_Home").addClass("active");
+				       	$("#nav_About").removeClass("active");
+				       	$("#nav_Portfolio").removeClass("active");
+				       	$("#nav_Contact").removeClass("active");
+				    } 
+				    else if( $(this).scrollTop() >= sectionOne &&  $(this).scrollTop() < sectionTwo ){
+				    	$("#nav_Home").removeClass("active");
+				       	$("#nav_About").addClass("active");
+				       	$("#nav_Portfolio").removeClass("active");
+				       	$("#nav_Contact").removeClass("active");
+				    }
+				    else if( $(this).scrollTop() >= sectionTwo &&  $(this).scrollTop() < sectionThree ){
+				    	$("#nav_Home").removeClass("active");
+				       	$("#nav_About").removeClass("active");
+				       	$("#nav_Portfolio").addClass("active");
+				       	$("#nav_Contact").removeClass("active");
+				    }
+				    else if( $(this).scrollTop() >= sectionThree &&  $(this).scrollTop() < sectionFour ){
+				    	$("#nav_Home").removeClass("active");
+				       	$("#nav_About").removeClass("active");
+				       	$("#nav_Portfolio").removeClass("active");
+				       	$("#nav_Contact").addClass("active");
+				    }
+				});
+
+			  	//SMOOTH SCROLLING
+			  	$("a").on('click', function(event) {
+				    // Make sure this.hash has a value before overriding default behavior
+				    if (this.hash !== "") {
+			     		// Prevent default anchor click behavior
+			     		event.preventDefault();
+					    // Store hash
+					    var hash = this.hash;
+					    // Using jQuery's animate() method to add smooth page scroll
+					    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+			      		$('html, body').animate({
+			        		scrollTop: $(hash).offset().top
+			      		}, 800, function(){
+				       		// Add hash (#) to URL when done scrolling (default click behavior)
+				        	window.location.hash = hash;
+			      		});
+			    	} // End if
+			  	});
 			});
-
-			// ACTIVE NAV 
-			$(document).on('scroll', function() {
-				var home = $('#Section_Home').outerHeight();
-				var about = $('#Section_About').outerHeight();
-				var portfolio = $('#Section_Portfolio').outerHeight();
-				var contact = $('#Section_Contact').outerHeight();
-
-				var sectionOne = home; // 700
-				var sectionTwo = home + about; //1400
-				var sectionThree = home + about + portfolio; //2100
-				var sectionFour = home + about + portfolio + contact; //2800
-
-			    if( $(this).scrollTop() >= 0 &&  $(this).scrollTop() < sectionOne){
-			       	$("#nav_Home").addClass("active");
-			       	$("#nav_About").removeClass("active");
-			       	$("#nav_Portfolio").removeClass("active");
-			       	$("#nav_Contact").removeClass("active");
-			    } 
-			    else if( $(this).scrollTop() >= sectionOne &&  $(this).scrollTop() < sectionTwo ){
-			    	$("#nav_Home").removeClass("active");
-			       	$("#nav_About").addClass("active");
-			       	$("#nav_Portfolio").removeClass("active");
-			       	$("#nav_Contact").removeClass("active");
-			    }
-			    else if( $(this).scrollTop() >= sectionTwo &&  $(this).scrollTop() < sectionThree ){
-			    	$("#nav_Home").removeClass("active");
-			       	$("#nav_About").removeClass("active");
-			       	$("#nav_Portfolio").addClass("active");
-			       	$("#nav_Contact").removeClass("active");
-			    }
-			    else if( $(this).scrollTop() >= sectionThree &&  $(this).scrollTop() < sectionFour ){
-			    	$("#nav_Home").removeClass("active");
-			       	$("#nav_About").removeClass("active");
-			       	$("#nav_Portfolio").removeClass("active");
-			       	$("#nav_Contact").addClass("active");
-			    }
-			});
-
-		  	//SMOOTH SCROLLING
-		  	$("a").on('click', function(event) {
-			    // Make sure this.hash has a value before overriding default behavior
-			    if (this.hash !== "") {
-		     		// Prevent default anchor click behavior
-		     		event.preventDefault();
-				    // Store hash
-				    var hash = this.hash;
-				    // Using jQuery's animate() method to add smooth page scroll
-				    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-		      		$('html, body').animate({
-		        		scrollTop: $(hash).offset().top
-		      		}, 800, function(){
-			       		// Add hash (#) to URL when done scrolling (default click behavior)
-			        	window.location.hash = hash;
-		      		});
-		    	} // End if
-		  	});
-		});
-	</script>
-	<!-- CSS Link -->
-	<link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
-	<div style="overflow: hidden;">
-		<!-- ------------------------------------------------------------------------------ Home -->
-	<div id="Section_Home" class="col-xs-12">
-		<div class="bg"></div>
-		<div class="bg bg2"></div>
-		<div class="bg bg3"></div>
-		<div class="col-md-8 col-sm-10 col-xs-12 content">
-		  	<h1 style="padding:0 20vmin;">Hello, I'm <span style="color: var(--highlight)">Rouzaz Aamir Hashmi</span></h1>
-		  	<h1 style="padding-left: 2vmin;">I am a Full Stack Flutter Developer</h1>
-		  	<div style="margin-top: 7%;"><a href="#Section_About">ABOUT ME</a></div>
-		</div>
-	</div>
-
-	<!-- ------------------------------------------------------------------------------ NavBar -->
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>                        
-				</button>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li id="nav_Home"><a href="#Section_Home">Home</a></li>
-					<li id="nav_About"><a href="#Section_About">About</a></li>
-					<li id="nav_Portfolio"><a href="#Section_Portfolio">Portfolio</a></li>
-					<li id="nav_Contact"><a href="#Section_Contact">Contact</a></li>
-				</ul>
+		</script>
+		<!-- CSS Link -->
+		<link rel="stylesheet" type="text/css" href="index.css">
+	</head>
+	<body data-spy="scroll" data-target=".navbar" data-offset="50">
+		<div style="overflow: hidden;">
+			<!-- ------------------------------------------------------------------------------ Home -->
+		<div id="Section_Home" class="col-xs-12">
+			<div class="bg"></div>
+			<div class="bg bg2"></div>
+			<div class="bg bg3"></div>
+			<div class="col-md-8 col-sm-10 col-xs-12 content">
+			  	<h1 style="padding:0 20vmin;">Hello, I'm <span style="color: var(--highlight)">Rouzaz Aamir Hashmi</span></h1>
+			  	<h1 style="padding-left: 2vmin;">I am a Full Stack Flutter Developer</h1>
+			  	<div style="margin-top: 7%;"><a href="#Section_About">ABOUT ME</a></div>
 			</div>
 		</div>
-	</nav>
 
-	<!-- ------------------------------------------------------------------------------ About -->
-	<div id="Section_About" class="col-xs-12">
-		<div id="SubSection_Features" class="col-xs-12"></div>
-		<div id="SubSection_Intro" class="col-xs-12"></div>
-		<div id="SubSection_Skills" class="col-xs-12"></div>
-	</div>
+		<!-- ------------------------------------------------------------------------------ NavBar -->
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li id="nav_Home"><a href="#Section_Home">Home</a></li>
+						<li id="nav_About"><a href="#Section_About">About</a></li>
+						<li id="nav_Portfolio"><a href="#Section_Portfolio">Portfolio</a></li>
+						<li id="nav_Contact"><a href="#Section_Contact">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-	<!-- ------------------------------------------------------------------------------ Portfolio -->
-	<div id="Section_Portfolio" class="col-xs-12"></div>
+		<!-- ------------------------------------------------------------------------------ About -->
+		<div id="Section_About" class="col-xs-12">
+			<div id="SubSection_Features" class="col-xs-12"></div>
+			<div id="SubSection_Intro" class="col-xs-12"></div>
+			<div id="SubSection_Skills" class="col-xs-12"></div>
+		</div>
 
-	<!-- ------------------------------------------------------------------------------ Contact -->
-	<div id="Section_Contact" class="col-xs-12"></div>
+		<!-- ------------------------------------------------------------------------------ Portfolio -->
+		<div id="Section_Portfolio" class="col-xs-12"></div>
 
-	<!-- ------------------------------------------------------------------------------ Footer -->
-	<div id="Section_Footer" class="col-xs-12"></div>
+		<!-- ------------------------------------------------------------------------------ Contact -->
+		<div id="Section_Contact" class="col-xs-12"></div>
 
-	</div>
-	
-</body>
+		<!-- ------------------------------------------------------------------------------ Footer -->
+		<div id="Section_Footer" class="col-xs-12"></div>
+
+		</div>
+		
+	</body>
 </html>
