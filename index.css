@@ -16,19 +16,13 @@ body{
     overflow-x: hidden;
 }
 .affix {
-    top:0;
-    width: 100%;
-    z-index: 9999 !important;
-  }
-  .navbar {
-    margin: 0; 
-    width: 100%;
-  }
-
-  .affix ~ .container-fluid {
-   position: relative;
-   top: 50px;
-  }
+  top:0;
+  width: 100%;
+  z-index: 9999 !important;
+}
+.affix + .container-fluid {
+  padding-top: 70px;
+}
 .active a{
     background-color:  var(--highlightShade) !important;
 }
@@ -156,7 +150,5 @@ body{
 
 /* ---------------------------------------------------------------------- Large Screen  (lg) */
 @media (min-width: 1380px) {
-    .content {
-        width: 40%;
-    }
+    
 }
