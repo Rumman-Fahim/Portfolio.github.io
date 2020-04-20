@@ -209,15 +209,11 @@ li{
         font-size: 4vw;
         padding: 25px 50px;
     }
-    #subSection_Info .box{
-        padding: 25px 25px;
-        margin-left: 8vw;
-        padding-bottom: 0;
+    #subSection_Info .box:nth-child(2),#subSection_Info .box:nth-child(3),#subSection_Info .box:nth-child(4){
+        margin-left: 25%;
     }
-    #subSection_Info .box:nth-child(3){
-        padding: 25px 0;
-        margin-left: 16vw;
-        padding-bottom: 0;
+    #subSection_Info .box:nth-child(4) .body .socials{
+        word-spacing: 6vw;
     }
 }
 
@@ -239,6 +235,9 @@ li{
     }
     #subSection_Info .box:nth-child(4){
         margin-left: 0;
+    }
+    #subSection_Info .box:nth-child(4) .body .socials{
+        word-spacing: 1.5vw;
     }
 }
 
