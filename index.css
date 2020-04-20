@@ -209,9 +209,6 @@ li{
         font-size: 4vw;
         padding: 25px 50px;
     }
-    #subSection_Info .box:nth-child(2),#subSection_Info .box:nth-child(3),#subSection_Info .box:nth-child(4){
-        margin-left: 25%;
-    }
     #subSection_Info .box:nth-child(4) .body .socials{
         word-spacing: 6vw;
     }
