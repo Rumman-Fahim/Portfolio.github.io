@@ -4,15 +4,12 @@
     --highlight: #66FCF1;
     --highlightShade: #45A29E;
     --contrast: #0B0C10;
-    --contrastShade:  #1F2833;
+    --contrastShade:  #151515;
     --light: #C5C6C7;
     --titleFont: 'Candal', sans-serif;
     --bodyFont1: 'Gotu', sans-serif;
     --bodyFont2: 'Montserrat', sans-serif;
     --bodyFont3: 'Source Code Pro', monospace;
-}
-body{
-    font-family: var(--bodyFont1 );
 }
 
 .active a{
@@ -134,10 +131,164 @@ li{
 
 /* ---------------------------------------------------------------------- Contact Section */
 #Section_Contact{
-	height: 700px;
-	background-color: white;
+    width: 100%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
 }
 
+.container{
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:50px 0;
+}
+.container .formBx{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .formBx form{
+    width: 90%;
+    position: relative;
+    padding: 0 0px;
+    background-color: white;
+}
+.container .formBx form h2{
+    color: black;
+    font-weight: 500;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.container .formBx form .inputBox{
+    position: relative;
+    margin-bottom: 50px;
+    width: 48%;
+    float: left;
+}
+.container .formBx form .inputBox:nth-child(odd){
+    position: relative;
+    margin-bottom: 50px;
+    width: 48%;
+    float: left;
+    margin-left: 3%;
+}
+.container .formBx form .inputBox:nth-child(6){
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    float: left;
+}
+.container .formBx form .inputBox:last-child{
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+}
+.container .formBx form .inputBox input,
+.container .formBx form .inputBox textarea{
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    border:none;
+    width: 100%;
+    color: black;
+    padding-bottom: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 300px;
+    border-bottom: 2px solid gray;
+    resize: none;
+}
+.container .formBx form .inputBox textarea{
+    height: 225px;
+}
+.btn{
+   width: 130px;
+   height: 40px;
+   border: 3px solid var(--highlightShade);
+   background-color: white;
+   border-radius: 40px;
+   color: var(--highlightShade);
+   letter-spacing: 2px;
+   outline: none;
+   text-shadow: 0;
+   transition: all 0.25s ease;
+}
+.btn:hover{
+    background-color: var(--highlightShade);
+    color: white;
+}
+.btn:active{
+    letter-spacing: 4px;
+}
+.btn:after{
+    font-family: sans-serif;
+    font-weight: 900;
+    content: "SUBMIT";
+}
+.onclic{
+    width: 40px;
+    border-color: #bbb;
+    border-width: 4px;
+    font-size: 0;
+    border-left-color: var(--highlightShade);
+    animation: rotating 2s 0.25s linear infinite;
+}
+.validate{
+    background-color: var(--highlightShade);
+    color: white;
+    font-size: 13px;
+}
+.validate:after{
+    font-family: FontAwesome;
+     content: "\f00c";
+}
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.container .formBx form .inputBox span{
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    font-weight: 300px;
+    display: inline-block;
+    pointer-events: none;
+    letter-spacing: 1px;
+    color: gray;
+    transition: all 0.2s;
+}
+.container .formBx form .inputBox input:focus ~ span,
+.container .formBx form .inputBox textarea:focus ~ span,
+.container .formBx form .inputBox input:valid ~ span,
+.container .formBx form .inputBox textarea:valid ~ span{
+    transform: translateY(-24px);
+    color: var(--highlightShade);
+    font-size: 14px;
+    font-weight: bolder;
+}
+.container .formBx form .inputBox input:focus,
+.container .formBx form .inputBox textarea:focus,
+.container .formBx form .inputBox input:valid,
+.container .formBx form .inputBox textarea:valid{
+    border-bottom-color:  var(--highlightShade);
+}
 /* ---------------------------------------------------------------------- Footer Section */
 #Section_Footer{
     height: auto;
@@ -150,14 +301,13 @@ li{
     text-align: center;
 }
 #subSection_Info{
-    background-color: #151515;
+    background-color: var(--contrastShade); 
     padding: 30px 0;
     padding-bottom: 0;
 }
 #subSection_Info .box{
     padding: 25px 0;
-/*    background-color: gray;
-*/}
+}
 #subSection_Info .title{
     font-size: 20px;
     color: white;
@@ -197,8 +347,6 @@ li{
     letter-spacing: 2px;
     word-spacing: 2.5px
 }
-
-
 /* ============================================================================================== */
 /* ---------------------------------------------------------------------- Extra Small Screen (xs) */
 @media (max-width: 768px) {
@@ -217,6 +365,11 @@ li{
     }
     #subSection_Info .box:nth-child(4){
         margin-bottom: 40px;
+    }
+    .container .formBx form .inputBox,
+    .container .formBx form .inputBox:nth-child(odd){
+        width: 100%;
+        margin-left: 0;
     }
 }
 

@@ -24,7 +24,7 @@
 
 				// ACTIVE NAV 
 				$(document).on('scroll', function() {
-					var home = $('#Section_Home').outerHeight() -50;
+					var home = $('#Section_Home').outerHeight() -100;
 					var about = $('#Section_About').outerHeight();
 					var services = $('#Section_Services').outerHeight();
 					var portfolio = $('#Section_Portfolio').outerHeight();
@@ -89,7 +89,7 @@
 				    }
 				});
 
-			  	//SMOOTH SCROLLING
+			  	// SMOOTH SCROLLING
 			  	$("a").on('click', function(event) {
 				    // Make sure this.hash has a value before overriding default behavior
 				    if (this.hash !== "") {
@@ -107,6 +107,19 @@
 			      		});
 			    	} // End if
 			  	});
+
+			  	// BUTTON ANIMATION
+			  	$( ".btn" ).on( "click", function() {
+			  		$(".btn").addClass("onclic");
+			  		setTimeout(() => {
+			  			$(".btn").removeClass("onclic").addClass("validate");
+			  		},2000,removeValidate());
+			  	});
+			  	function removeValidate() {
+			  		setTimeout(() => {
+			  			$(".btn").removeClass("validate");
+			  		},3800);
+			  	}
 			});
 		</script>
 		<!-- Font Awesome Link -->
@@ -168,7 +181,39 @@
 		<div id="Section_Pricing" class="col-xs-12"></div>
 
 		<!-- ------------------------------------------------------------------------------ Contact -->
-		<div id="Section_Contact" class="col-xs-12"></div>
+		<div id="Section_Contact" class="col-xs-12">
+			<div class="container">
+				<div class="formBx">
+					<form>
+						<h2>Contact Us</h2>
+						<div class="inputBox">
+							<input type="text" name="" required="required">
+							<span>First name</span>
+						</div>
+						<div class="inputBox">
+							<input type="text" name="" required="required">
+							<span>Last name</span>
+						</div>
+						<div class="inputBox">
+							<input type="number" name="" required="required">
+							<span>Phone Number</span>
+						</div>
+						<div class="inputBox">
+							<input type="email" name="" required="required">
+							<span>E-mail Address</span>
+						</div>
+						<div class="inputBox">
+							<textarea required="required"></textarea>
+							<span>Type Your Message Here ... </span>
+						</div>
+						<div class="inputBox">
+							<button class="btn" type="submit"></button>
+						</div>
+					</form>
+				</div>
+				<div class="imgBx"></div>
+			</div>
+		</div>
 
 		<!-- ------------------------------------------------------------------------------ Footer -->
 		<div id="Section_Footer" class="col-xs-12"></div>
