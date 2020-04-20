@@ -25,6 +25,9 @@ body{
     background-color: transparent; 
     border:none;
 }
+li{
+    list-style-type: none;
+}
 /* ---------------------------------------------------------------------- Home Section */
 #Section_Home{
 	height: 700px;
@@ -107,6 +110,14 @@ body{
 	height: 700px;
     background-color: white;
 }
+
+/* ---------------------------------------------------------------------- Services Section */
+#Section_Services{
+    height: 700px;
+    border: 2px solid black;
+    background-color: white;
+}
+
 /* ---------------------------------------------------------------------- Portfolio Section */
 #Section_Portfolio{
 	height: 700px;
@@ -114,24 +125,107 @@ body{
 	background-color: white;
 }
 
+/* ---------------------------------------------------------------------- Pricing Section */
+#Section_Pricing{
+    height: 700px;
+    border: 2px solid black;
+    background-color: white;
+}
+
 /* ---------------------------------------------------------------------- Contact Section */
 #Section_Contact{
 	height: 700px;
-	border: 2px solid black;
 	background-color: white;
 }
 
 /* ---------------------------------------------------------------------- Footer Section */
 #Section_Footer{
-	height: 700px;
-	border: 2px solid black;
-	background-color: white;
+    height: auto;
+}
+#subSection_Sentence{
+    padding: 50px 50px;
+    background-color: var(--highlightShade);
+    color: white;
+    font-size: 3.5vw;
+    text-align: center;
+}
+#subSection_Info{
+    background-color: #151515;
+    padding: 30px 0;
+    padding-bottom: 0;
+}
+#subSection_Info .box{
+    padding: 25px 25px;
+    margin-left: 2.5vw;
+}
+#subSection_Info .title{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+#subSection_Info .body{
+    color: lightgray;
+    margin-top: 10px;
+
+}
+#subSection_Info .body li{
+    margin-bottom: 20px;
+}
+#subSection_Info .body li a{
+    text-decoration: none;
+    color: lightgray;
 }
 
+#subSection_Info .body li i{
+    color: var(--highlight);
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.socials{
+    word-spacing: 1.5vw;
+    padding-top: 10px;
+}
+.socials a{
+    color: var(--highlight);
+    text-decoration: none;
+}
+#subSection_Copyright{
+    background-color: #151515;
+    padding-bottom: 50px;
+    text-align: center;
+    color: lightgray;
+    letter-spacing: 2px;
+    word-spacing: 2.5px
+}
+
+
+/* ============================================================================================== */
 /* ---------------------------------------------------------------------- Extra Small Screen (xs) */
 @media (max-width: 768px) {
     .content div{
         margin-top: 12%;
+    }
+    #subSection_Sentence{
+        font-size: 4vw;
+        padding: 25px 50px;
+    }
+    #subSection_Info .box{
+        padding: 25px 25px;
+        margin-left: 8vw;
+        padding-bottom: 0;
+    }
+    #subSection_Info .box:nth-child(3){
+        padding: 25px 0;
+        margin-left: 20vw;
+    }
+    #subSection_Info .box:nth-child(4){
+        margin-left: 8vw;
+        text-align: center;
+        padding: 0;
+        margin-bottom: 50px;
+    }
+    #subSection_Info .box:nth-child(4) .body .socials{
+        word-spacing: 8vw;
     }
 }
 
@@ -140,6 +234,23 @@ body{
     .content div{
         margin-top: 12%;
     }
+    #subSection_Sentence{
+        font-size: 4vw;
+        padding: 35px 50px;
+    }
+    #subSection_Info .box{
+        padding: 25px 25px;
+        margin-left: 8vw;
+    }
+    #subSection_Info .box:nth-child(3){
+        padding: 25px 0;
+    }
+    #subSection_Info .box:nth-child(4){
+        margin-left: 0;
+    }
+     #subSection_Info .box:nth-child(4) .body .socials{
+        word-spacing: 1.5vw;
+    }
 }
 
 /* ---------------------------------------------------------------------- Medium Screen (md) */
@@ -147,11 +258,17 @@ body{
     .content div{
         margin-top: 6%;
     }
+    #subSection_Sentence{
+        font-size: 3.5vw;
+        padding: 50px 50px;
+    }
+    #subSection_Info .box{
+        padding: 25px 25px;
+        margin-left: 2.5vw;
+    }
 }
 
 /* ---------------------------------------------------------------------- Large Screen  (lg) */
 @media (min-width: 1380px) {
-    .content div{
-        margin-top: 6%;
-    }
+   
 }

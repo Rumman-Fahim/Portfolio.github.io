@@ -3,10 +3,12 @@
 	<head>
 		<title>Portfolio Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Bootstrap & jQuery Links -->
+		<!-- jQuery Links -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- Bootstrap Links -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	    <!-- jQuery Code -->
 		<script>
 			$(document).ready(function(){
 				// STICKY NAVBAR
@@ -22,39 +24,68 @@
 
 				// ACTIVE NAV 
 				$(document).on('scroll', function() {
-					var home = $('#Section_Home').outerHeight();
+					var home = $('#Section_Home').outerHeight() -50;
 					var about = $('#Section_About').outerHeight();
+					var services = $('#Section_Services').outerHeight();
 					var portfolio = $('#Section_Portfolio').outerHeight();
+					var pricing = $('#Section_Pricing').outerHeight();
 					var contact = $('#Section_Contact').outerHeight();
 
-					var sectionOne = home; // 700
-					var sectionTwo = home + about; //1400
-					var sectionThree = home + about + portfolio; //2100
-					var sectionFour = home + about + portfolio + contact; //2800
+					var sectionOne  = home; // 700
+					var sectionTwo  = home + about; //1400
+					var sectionThree= home + about + services; //2100
+					var sectionFour = home + about + services + portfolio; //2800
+					var sectionFive = home + about + services + portfolio + pricing; //3500
+					var sectionSix  = home + about + services + portfolio + pricing + contact; //4200
+
 
 				    if( $(this).scrollTop() >= 0 &&  $(this).scrollTop() < sectionOne){
 				       	$("#nav_Home").addClass("active");
 				       	$("#nav_About").removeClass("active");
+				       	$("#nav_Services").removeClass("active");
 				       	$("#nav_Portfolio").removeClass("active");
+				       	$("#nav_Pricing").removeClass("active");
 				       	$("#nav_Contact").removeClass("active");
 				    } 
 				    else if( $(this).scrollTop() >= sectionOne &&  $(this).scrollTop() < sectionTwo ){
+				    	$("#nav_About").addClass("active");
 				    	$("#nav_Home").removeClass("active");
-				       	$("#nav_About").addClass("active");
+				       	$("#nav_Services").removeClass("active");
 				       	$("#nav_Portfolio").removeClass("active");
+				       	$("#nav_Pricing").removeClass("active");
 				       	$("#nav_Contact").removeClass("active");
 				    }
 				    else if( $(this).scrollTop() >= sectionTwo &&  $(this).scrollTop() < sectionThree ){
-				    	$("#nav_Home").removeClass("active");
-				       	$("#nav_About").removeClass("active");
-				       	$("#nav_Portfolio").addClass("active");
-				       	$("#nav_Contact").removeClass("active");
-				    }
-				    else if( $(this).scrollTop() >= sectionThree &&  $(this).scrollTop() < sectionFour ){
+				    	$("#nav_Services").addClass("active");
 				    	$("#nav_Home").removeClass("active");
 				       	$("#nav_About").removeClass("active");
 				       	$("#nav_Portfolio").removeClass("active");
-				       	$("#nav_Contact").addClass("active");
+				       	$("#nav_Pricing").removeClass("active");
+				       	$("#nav_Contact").removeClass("active");
+				    }
+				    else if( $(this).scrollTop() >= sectionThree &&  $(this).scrollTop() < sectionFour ){
+				    	$("#nav_Portfolio").addClass("active");
+				    	$("#nav_Home").removeClass("active");
+				       	$("#nav_About").removeClass("active");
+				       	$("#nav_Services").removeClass("active");
+				       	$("#nav_Pricing").removeClass("active");
+				       	$("#nav_Contact").removeClass("active");
+				    }
+				    else if( $(this).scrollTop() >= sectionFour &&  $(this).scrollTop() < sectionFive ){
+				    	$("#nav_Pricing").addClass("active");
+				    	$("#nav_Home").removeClass("active");
+				       	$("#nav_About").removeClass("active");
+				       	$("#nav_Services").removeClass("active");
+				       	$("#nav_Portfolio").removeClass("active");
+				       	$("#nav_Contact").removeClass("active");
+				    }
+				    else if( $(this).scrollTop() >= sectionFive &&  $(this).scrollTop() < sectionSix ){
+				    	$("#nav_Contact").addClass("active");
+				    	$("#nav_Home").removeClass("active");
+				       	$("#nav_About").removeClass("active");
+				       	$("#nav_Services").removeClass("active");
+				       	$("#nav_Portfolio").removeClass("active");
+				       	$("#nav_Pricing").removeClass("active");
 				    }
 				});
 
@@ -78,6 +109,8 @@
 			  	});
 			});
 		</script>
+		<!-- Font Awesome Link -->
+		<script src="https://kit.fontawesome.com/11b8901115.js"></script>
 		<!-- CSS Link -->
 		<link rel="stylesheet" type="text/css" href="index.css">
 	</head>
@@ -109,7 +142,9 @@
 					<ul class="nav navbar-nav">
 						<li id="nav_Home"><a href="#Section_Home">Home</a></li>
 						<li id="nav_About"><a href="#Section_About">About</a></li>
+						<li id="nav_Services"><a href="#Section_Services">Services</a></li>
 						<li id="nav_Portfolio"><a href="#Section_Portfolio">Portfolio</a></li>
+						<li id="nav_Pricing"><a href="#Section_Pricing">Pricing</a></li>
 						<li id="nav_Contact"><a href="#Section_Contact">Contact</a></li>
 					</ul>
 				</div>
@@ -123,15 +158,58 @@
 			<div id="SubSection_Skills" class="col-xs-12"></div>
 		</div>
 
+		<!-- ------------------------------------------------------------------------------ Services -->
+		<div id="Section_Services" class="col-xs-12"></div>
+
 		<!-- ------------------------------------------------------------------------------ Portfolio -->
 		<div id="Section_Portfolio" class="col-xs-12"></div>
+
+		<!-- ------------------------------------------------------------------------------ Pricing -->
+		<div id="Section_Pricing" class="col-xs-12"></div>
 
 		<!-- ------------------------------------------------------------------------------ Contact -->
 		<div id="Section_Contact" class="col-xs-12"></div>
 
 		<!-- ------------------------------------------------------------------------------ Footer -->
 		<div id="Section_Footer" class="col-xs-12"></div>
-
+			<div class="col-xs-12" id="subSection_Sentence">Bringing Your Vision to Life</div>
+			<div class="col-xs-12" id="subSection_Info">
+				<div class="col-md-4 col-xs-10 box">
+					<div class="title">About Us</div>
+					<div class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				</div>
+				<div class="col-md-2 col-sm-3 col-xs-2 box">
+					<div class="title">Features</div>
+					<div class="body">
+						<li><a href="#Section_Services">Services</a></li>
+						<li><a href="#Section_Portfolio">Portfolio</a></li>
+						<li><a href="#Section_Pricing">Pricing</a></li>
+						<li><a href="#Section_Contact">Contact</a></li>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-4 col-xs-6 box">
+					<div class="title">Contact Us</div>
+					<div class="body">
+						<li><i class="fas fa-phone"></i>0309 6706915</li>
+						<li><i class="fas fa-envelope"></i> rozazhashmi406@gmail.com</li>
+						<li><i class="fas fa-map-marker-alt"></i>Lahore, Pakistan</li>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-3 col-xs-10 box">
+					<div class="title">Follow Us</div>
+					<div class="body">
+						<div class="socials">
+							<a href="#"><i class="fab fa-linkedin-in"></i></a>
+							<a href="#"><i class="fab fa-google"></i></a>
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-github-alt"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12" id="subSection_Copyright">Copyright <span style="color: var(--highlight);font-weight: lighter;font-size: 15px"><i class="far fa-copyright"></i></span> Rouzaz Aamir Hashmi 2020</div>
 		</div>	
 	</body>
 </html>
