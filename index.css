@@ -11,7 +11,9 @@
     --bodyFont2: 'Montserrat', sans-serif;
     --bodyFont3: 'Source Code Pro', monospace;
 }
-
+body{
+    font-family: var(--bodyFont1);
+}
 .active a{
     background-color:  var(--highlightShade) !important;
 }
@@ -27,36 +29,36 @@ li{
 }
 /* ---------------------------------------------------------------------- Home Section */
 #Section_Home{
-	height: 700px;
+    height: 700px;
     background-color: white;
     z-index: 1;
 }
 .bg {
-  	animation:slide 3s ease-in-out infinite alternate;
-  	background-image: linear-gradient(-60deg, #0B0C10 50%, #1F2833 50%);
-  	bottom:0;
-  	left:-50%;
-  	opacity:.5;
-  	position: absolute;
-  	right:-50%;
-  	top:0;
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #0B0C10 50%, #1F2833 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position: absolute;
+    right:-50%;
+    top:0;
     z-index: -1;
 }
 .bg2 {
-  	animation-direction:alternate-reverse;
-  	animation-duration:4s;
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
 }
 .bg3 {
-  	animation-duration:5s;
+    animation-duration:5s;
 }
 .content {
     color: white;
     font-family: var(--titleFont);
     position: relative;
     text-align:center;
-  	left:50%;
-  	top: 45%;
-  	transform:translate(-50%, -50%);
+    left:50%;
+    top: 45%;
+    transform:translate(-50%, -50%);
 }
 .content div{
     margin-top: 6%;
@@ -94,17 +96,17 @@ li{
     transform: scaleX(1);
 }
 @keyframes slide {
-  	0% {
-    	transform:translateX(-25%);
-  	}
-  	100% {
-    	transform:translateX(25%);
-  	}
+    0% {
+        transform:translateX(-25%);
+    }
+    100% {
+        transform:translateX(25%);
+    }
 }
 
 /* ---------------------------------------------------------------------- About Section */
 #Section_About{
-	height: 700px;
+    height: 700px;
     background-color: white;
 }
 
@@ -117,9 +119,9 @@ li{
 
 /* ---------------------------------------------------------------------- Portfolio Section */
 #Section_Portfolio{
-	height: 700px;
-	border: 2px solid black;
-	background-color: white;
+    height: 700px;
+    border: 2px solid black;
+    background-color: white;
 }
 
 /* ---------------------------------------------------------------------- Pricing Section */
@@ -132,7 +134,7 @@ li{
 /* ---------------------------------------------------------------------- Contact Section */
 #Section_Contact{
     width: 100%;
-	display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -184,7 +186,7 @@ li{
     float: left;
     margin-left: 3%;
 }
-.container .formBx form .inputBox:nth-child(6){
+#textarea_box{
     position: relative;
     margin-bottom: 20px;
     width: 100%;
@@ -196,8 +198,7 @@ li{
     text-align: center;
     margin-left: 0;
 }
-.container .formBx form .inputBox input,
-.container .formBx form .inputBox textarea{
+.container .formBx form .inputBox input{
     position: relative;
     background-color: transparent;
     outline: none;
@@ -211,8 +212,31 @@ li{
     border-bottom: 2px solid gray;
     resize: none;
 }
-.container .formBx form .inputBox textarea{
+#textarea_box textarea{
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    border:none;
+    width: 100%;
+    color: black;
+    padding-bottom: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 300px;
+    border-bottom: 2px solid gray;
+    resize: none;
     height: 225px;
+}
+#textarea_box span{
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    font-weight: 300px;
+    display: inline-block;
+    pointer-events: none;
+    letter-spacing: 1px;
+    color: gray;
+    transition: all 0.2s;
 }
 .btn{
    width: 130px;
@@ -222,27 +246,37 @@ li{
    border-radius: 40px;
    color: var(--highlightShade);
    letter-spacing: 2px;
-   outline: none;
+   outline: none !important;
    text-shadow: 0;
    transition: all 0.25s ease;
 }
 .btn:hover{
     background-color: var(--highlightShade);
     color: white;
+    outline: none;
+}
+.btn:focus{
+    background-color: white;
+    color: var(--highlightShade);
+    outline: none;
 }
 .btn:active{
     letter-spacing: 4px;
+    outline: none;
 }
+
 .btn:after{
     font-family: sans-serif;
     font-weight: 900;
     content: "SUBMIT";
+    outline: none;
 }
 .onclic{
     width: 40px;
     border-color: #bbb;
     border-width: 4px;
     font-size: 0;
+    outline: none;
     border-left-color: var(--highlightShade);
     animation: rotating 2s 0.25s linear infinite;
 }
@@ -250,10 +284,18 @@ li{
     background-color: var(--highlightShade);
     color: white;
     font-size: 13px;
+    outline: none;
+}
+.validate:focus{
+    background-color: var(--highlightShade);
+    color: white;
+    font-size: 13px;
+    outline: none;
 }
 .validate:after{
     font-family: FontAwesome;
      content: "\f00c";
+     outline: none;
 }
 @keyframes rotating {
     from {
@@ -274,20 +316,10 @@ li{
     color: gray;
     transition: all 0.2s;
 }
-.container .formBx form .inputBox input:focus ~ span,
-.container .formBx form .inputBox textarea:focus ~ span,
-.container .formBx form .inputBox input:valid ~ span,
-.container .formBx form .inputBox textarea:valid ~ span{
+.label_move_up_highlight{
     transform: translateY(-24px);
-    color: var(--highlightShade);
-    font-size: 14px;
+    font-size: 14px !important;
     font-weight: bolder;
-}
-.container .formBx form .inputBox input:focus,
-.container .formBx form .inputBox textarea:focus,
-.container .formBx form .inputBox input:valid,
-.container .formBx form .inputBox textarea:valid{
-    border-bottom-color:  var(--highlightShade);
 }
 /* ---------------------------------------------------------------------- Footer Section */
 #Section_Footer{
