@@ -1,423 +1,514 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Portfolio Page</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- jQuery Links -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<!-- Bootstrap Links -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	    <!-- jQuery Code -->
-		<script>
-			$(document).ready(function(){
-				// STICKY NAVBAR
-				$(window).scroll(function() {    
-				    var scroll = $(window).scrollTop();
+<head>
+	<title>Portfolio Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- jQuery Links -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Bootstrap Links -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- jQuery Code -->
+	<script>
+		$(document).ready(function(){
+			// STICKY NAVBAR
+			$(window).scroll(function() {    
+			    var scroll = $(window).scrollTop();
 
-				    if (scroll >= 697) {
-				        $(".navbar").addClass("navbar-fixed-top");
-				    } else {
-				        $(".navbar").removeClass("navbar-fixed-top");
-				    }   
-				});
-
-				// ACTIVE NAV 
-				$(document).on('scroll', function() {
-					var home = $('#Section_Home').outerHeight() -100;
-					var about = $('#Section_About').outerHeight();
-					var services = $('#Section_Services').outerHeight();
-					var portfolio = $('#Section_Portfolio').outerHeight();
-					var pricing = $('#Section_Pricing').outerHeight();
-					var contact = $('#Section_Contact').outerHeight();
-
-					var sectionOne  = home; // 700
-					var sectionTwo  = home + about; //1400
-					var sectionThree= home + about + services; //2100
-					var sectionFour = home + about + services + portfolio; //2800
-					var sectionFive = home + about + services + portfolio + pricing; //3500
-					var sectionSix  = home + about + services + portfolio + pricing + contact; //4200
-
-
-				    if( $(this).scrollTop() >= 0 &&  $(this).scrollTop() < sectionOne){
-				       	$("#nav_Home").addClass("active");
-				       	$("#nav_About").removeClass("active");
-				       	$("#nav_Services").removeClass("active");
-				       	$("#nav_Portfolio").removeClass("active");
-				       	$("#nav_Pricing").removeClass("active");
-				       	$("#nav_Contact").removeClass("active");
-				    } 
-				    else if( $(this).scrollTop() >= sectionOne &&  $(this).scrollTop() < sectionTwo ){
-				    	$("#nav_About").addClass("active");
-				    	$("#nav_Home").removeClass("active");
-				       	$("#nav_Services").removeClass("active");
-				       	$("#nav_Portfolio").removeClass("active");
-				       	$("#nav_Pricing").removeClass("active");
-				       	$("#nav_Contact").removeClass("active");
-				    }
-				    else if( $(this).scrollTop() >= sectionTwo &&  $(this).scrollTop() < sectionThree ){
-				    	$("#nav_Services").addClass("active");
-				    	$("#nav_Home").removeClass("active");
-				       	$("#nav_About").removeClass("active");
-				       	$("#nav_Portfolio").removeClass("active");
-				       	$("#nav_Pricing").removeClass("active");
-				       	$("#nav_Contact").removeClass("active");
-				    }
-				    else if( $(this).scrollTop() >= sectionThree &&  $(this).scrollTop() < sectionFour ){
-				    	$("#nav_Portfolio").addClass("active");
-				    	$("#nav_Home").removeClass("active");
-				       	$("#nav_About").removeClass("active");
-				       	$("#nav_Services").removeClass("active");
-				       	$("#nav_Pricing").removeClass("active");
-				       	$("#nav_Contact").removeClass("active");
-				    }
-				    else if( $(this).scrollTop() >= sectionFour &&  $(this).scrollTop() < sectionFive ){
-				    	$("#nav_Pricing").addClass("active");
-				    	$("#nav_Home").removeClass("active");
-				       	$("#nav_About").removeClass("active");
-				       	$("#nav_Services").removeClass("active");
-				       	$("#nav_Portfolio").removeClass("active");
-				       	$("#nav_Contact").removeClass("active");
-				    }
-				    else if( $(this).scrollTop() >= sectionFive &&  $(this).scrollTop() < sectionSix ){
-				    	$("#nav_Contact").addClass("active");
-				    	$("#nav_Home").removeClass("active");
-				       	$("#nav_About").removeClass("active");
-				       	$("#nav_Services").removeClass("active");
-				       	$("#nav_Portfolio").removeClass("active");
-				       	$("#nav_Pricing").removeClass("active");
-				    }
-				});
-
-			  	// SMOOTH SCROLLING
-			  	$("a").on('click', function(event) {
-				    // Make sure this.hash has a value before overriding default behavior
-				    if (this.hash !== "") {
-			     		// Prevent default anchor click behavior
-			     		event.preventDefault();
-					    // Store hash
-					    var hash = this.hash;
-					    // Using jQuery's animate() method to add smooth page scroll
-					    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-			      		$('html, body').animate({
-			        		scrollTop: $(hash).offset().top
-			      		}, 800, function(){
-				       		// Add hash (#) to URL when done scrolling (default click behavior)
-				        	window.location.hash = hash;
-			      		});
-			    	} // End if
-			  	});
-
-			  	// BUTTON ANIMATION
-			  	function btn_animation() {
-			  		$(".btn").addClass("onclic");
-			  		setTimeout(() => {
-			  			$(".btn").removeClass("onclic").addClass("validate");
-			  		},2000,removeValidate());
-			  	}
-			  	function removeValidate() {
-			  		setTimeout(() => {
-			  			$(".btn").removeClass("validate");
-			  		},3800,dull_InputText());
-			  	}
-			  	function dull_InputText() {
-			  		setTimeout(() => {
-			  			$("input").val('');
-			  			$("textarea").val('');
-			  		},2000);
-			  	}
-			  	
-			  	// FOR INPUT FIELDS
-			  	$(".inputBox").on({
-			  		mouseover: function(){
-			  	  		var $current_input = $(this).find("input");
-			  	  		var $current_label = $(this).find("span");
-			  	  		$current_input.css("border-bottom-color", "#45A29E");
-			  	  		$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
-			  	  		$current_input.prop('disabled', false); //makes it enabled
-			  	  	},
-			  	  	mouseleave: function(){
-			  	  		var $current_input = $(this).find("input");
-			  	  		var $current_label = $(this).find("span");
-			  	  		
-
-			  	  		if($current_input.val() == ""){
-			  	  			$current_input.css("border-bottom-color", "gray");
-			  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
-			  	  		}else{
-			  	  			$current_input.css("border-bottom-color", "#54C4C0");
-			  	  			$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
-			  	  		}
-			  	  	},
-			  	  	click: function(){
-			  	  		var $current_input = $(this).find("input");
-			  	  		var $current_label = $(this).find("span");
-			  	  		$current_input.css("border-bottom-color", "#54C4C0");
-			  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
-			  	  		$current_input.prop('disabled', false); //makes it enabled
-			  	  	},
-			  	  	input: function(){
-			  	  		var $current_input = $(this).find("input");
-			  	  		var $current_label = $(this).find("span");
-			  	  		$current_input.css("border-bottom-color", "#54C4C0");
-			  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
-			  	  		$current_input.prop('disabled', false); //makes it enabled
-			  	  	},
-			  	  	off: function(){
-			  	  		var $current_input = $(this).find("input");
-			  	  		var $current_label = $(this).find("span");
-			  	  		$current_input.prop('disabled', true); //makes it disabled
-
-			  	  		if($current_input.val() == ""){
-			  	  			$current_input.css("border-bottom-color", "gray");
-			  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
-			  	  		}else{
-			  	  			$current_input.css("border-bottom-color", "#45A29E");
-			  	  			$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
-			  	  		}
-			  	  	}
-			  	});
-
-			  	// FOR TEXTAREA FIELDS
-			  	$("#textarea_box").on({
-			  		mouseover: function(){
-			  	  		var $current_input = $(this).find("textarea");
-			  	  		var $current_label = $(this).find("span");
-			  	  		$current_input.css("border-bottom-color", "#45A29E");
-			  	  		$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
-			  	  		$current_input.prop('disabled', false); //makes it enabled
-			  	  	},
-			  	  	mouseleave: function(){
-			  	  		var $current_input = $(this).find("textarea");
-			  	  		var $current_label = $(this).find("span");
-			  	  		$current_input.prop('disabled', true); //makes it disabled
-
-			  	  		if($current_input.val() == ""){
-			  	  			$current_input.css("border-bottom-color", "gray");
-			  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
-			  	  		}else{
-			  	  			$current_input.css("border-bottom-color", "#54C4C0");
-			  	  			$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
-			  	  		}
-			  	  	},
-			  	  	input: function(){
-			  	  		var $current_input = $(this).find("input");
-			  	  		var $current_label = $(this).find("span");
-			  	  		$current_input.css("border-bottom-color", "#54C4C0");
-			  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
-			  	  		$current_input.prop('disabled', false); //makes it enabled
-			  	  	},
-			  	  	click: function(){
-			  	  		var $current_input = $(this).find("textarea");
-			  	  		var $current_label = $(this).find("span");
-			  	  		$current_input.css("border-bottom-color", "#54C4C0");
-			  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
-			  	  		$current_input.prop('disabled', false); //makes it enabled
-			  	  	},
-			  	  	off: function(){
-			  	  		var $current_input = $(this).find("textarea");
-			  	  		var $current_label = $(this).find("span");
-			  	  		$current_input.prop('disabled', true); //makes it disabled
-
-			  	  		if($current_input.val() == ""){
-			  	  			$current_input.css("border-bottom-color", "gray");
-			  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
-			  	  		}else{
-			  	  			$current_input.css("border-bottom-color", "#45A29E");
-			  	  			$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
-			  	  		}
-			  	  	}
-			  	});
-
-			  	// VALIDATING FORM INPUT
-			  	$('#contact_form').submit(function (e) {
-			  	    e.preventDefault();
-			  	    if (validate() == true) {
-			  	    	btn_animation();
-			  	    }
-			  	});
-			  	function validate(){
-			  		var isValid = true;
-			  		if($("#first_name").val() == ""){
-			  			$("#first_name_err").html("Please Enter First Name.");
-			  			isValid = false;
-			  		}else{
-			  			$("#first_name_err").html("");
-			  		}
-			  		if($("#last_name").val() == ""){
-			  			$("#last_name_err").html("Please Enter Last Name.");
-			  			isValid = false;
-			  		}else{
-			  			$("#last_name_err").html("");
-			  		}
-			  		if($("#email").val() == ""){
-			  			$("#email_err").html("Please Enter Your E-mail.");
-			  			isValid = false;
-			  		}else{
-			  			var email_format = /[0-9a-zA-Z](@)[a-zA-Z].*[.](com)$/;
-			  			if (!($("#email").val().match(email_format))) {
-			  				$("#email_err").html("Enter E-mail in Correct Format.");
-			  				isValid = false;
-			  			}else {
-			  				$("#email_err").html("");
-			  			}
-			  		}
-			  		if($("#phone_number").val() == ""){
-			  			$("#phone_number_err").html("Please Enter Your Phone Number.");
-			  			isValid = false;
-			  		}else{
-			  			$("#phone_number_err").html("");
-			  		}
-			  		if($("#message").val() == ""){
-			  			$("#message_err").html("Enter Your Message.");
-			  			isValid = false;
-			  		}else{
-			  			$("#message_err").html("");
-			  		}
-			  		
-			  		return isValid;
-			  	}
+			    if (scroll >= 697) {
+			        $(".navbar").addClass("navbar-fixed-top");
+			    } else {
+			        $(".navbar").removeClass("navbar-fixed-top");
+			    }   
 			});
-		</script>
-		<!-- Font Awesome Link -->
-		<script src="https://kit.fontawesome.com/11b8901115.js"></script>
-		<!-- CSS Link -->
-		<link rel="stylesheet" type="text/css" href="index.css">
-	</head>
-	<body data-spy="scroll" data-target=".navbar" data-offset="50">
-		<div style="overflow: hidden;">
-		<!-- ------------------------------------------------------------------------------ Home -->
-		<div id="Section_Home" class="col-xs-12">
-			<div class="bg"></div>
-			<div class="bg bg2"></div>
-			<div class="bg bg3"></div>
-			<div class="col-md-8 col-sm-10 col-xs-12 content">
-			  	<h1 style="padding:0 20vmin;">Hello, I'm <span style="color: var(--highlight)">Rouzaz Aamir Hashmi</span></h1>
-			  	<h1 style="padding-left: 2vmin;">I am a Full Stack Flutter Developer</h1>
-			  	<div><a href="#Section_About">ABOUT ME</a></div>
+
+			// ACTIVE NAV 
+			$(document).on('scroll', function() {
+				var home = $('#Section_Home').outerHeight() -30;
+				var about = $('#Section_About').outerHeight();
+				var services = $('#Section_Services').outerHeight();
+				var portfolio = $('#Section_Portfolio').outerHeight();
+				var pricing = $('#Section_Pricing').outerHeight();
+				var contact = $('#Section_Contact').outerHeight();
+
+				var sectionOne  = home; // 700
+				var sectionTwo  = home + about; //1400
+				var sectionThree= home + about + services; //2100
+				var sectionFour = home + about + services + portfolio; //2800
+				var sectionFive = home + about + services + portfolio + pricing; //3500
+				var sectionSix  = home + about + services + portfolio + pricing + contact; //4200
+
+
+			    if( $(this).scrollTop() >= 0 &&  $(this).scrollTop() < sectionOne){
+			       	$("#nav_Home").addClass("active");
+			       	$("#nav_About").removeClass("active");
+			       	$("#nav_Services").removeClass("active");
+			       	$("#nav_Portfolio").removeClass("active");
+			       	$("#nav_Pricing").removeClass("active");
+			       	$("#nav_Contact").removeClass("active");
+			    } 
+			    else if( $(this).scrollTop() >= sectionOne &&  $(this).scrollTop() < sectionTwo ){
+			    	$("#nav_About").addClass("active");
+			    	$("#nav_Home").removeClass("active");
+			       	$("#nav_Services").removeClass("active");
+			       	$("#nav_Portfolio").removeClass("active");
+			       	$("#nav_Pricing").removeClass("active");
+			       	$("#nav_Contact").removeClass("active");
+			    }
+			    else if( $(this).scrollTop() >= sectionTwo &&  $(this).scrollTop() < sectionThree ){
+			    	$("#nav_Services").addClass("active");
+			    	$("#nav_Home").removeClass("active");
+			       	$("#nav_About").removeClass("active");
+			       	$("#nav_Portfolio").removeClass("active");
+			       	$("#nav_Pricing").removeClass("active");
+			       	$("#nav_Contact").removeClass("active");
+			    }
+			    else if( $(this).scrollTop() >= sectionThree &&  $(this).scrollTop() < sectionFour ){
+			    	$("#nav_Portfolio").addClass("active");
+			    	$("#nav_Home").removeClass("active");
+			       	$("#nav_About").removeClass("active");
+			       	$("#nav_Services").removeClass("active");
+			       	$("#nav_Pricing").removeClass("active");
+			       	$("#nav_Contact").removeClass("active");
+			    }
+			    else if( $(this).scrollTop() >= sectionFour &&  $(this).scrollTop() < sectionFive ){
+			    	$("#nav_Pricing").addClass("active");
+			    	$("#nav_Home").removeClass("active");
+			       	$("#nav_About").removeClass("active");
+			       	$("#nav_Services").removeClass("active");
+			       	$("#nav_Portfolio").removeClass("active");
+			       	$("#nav_Contact").removeClass("active");
+			    }
+			    else if( $(this).scrollTop() >= sectionFive &&  $(this).scrollTop() < sectionSix ){
+			    	$("#nav_Contact").addClass("active");
+			    	$("#nav_Home").removeClass("active");
+			       	$("#nav_About").removeClass("active");
+			       	$("#nav_Services").removeClass("active");
+			       	$("#nav_Portfolio").removeClass("active");
+			       	$("#nav_Pricing").removeClass("active");
+			    }
+			});
+
+		  	// SMOOTH SCROLLING
+		  	$("a").on('click', function(event) {
+			    // Make sure this.hash has a value before overriding default behavior
+			    if (this.hash !== "") {
+		     		// Prevent default anchor click behavior
+		     		event.preventDefault();
+				    // Store hash
+				    var hash = this.hash;
+				    // Using jQuery's animate() method to add smooth page scroll
+				    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+		      		$('html, body').animate({
+		        		scrollTop: $(hash).offset().top
+		      		}, 800, function(){
+			       		// Add hash (#) to URL when done scrolling (default click behavior)
+			        	window.location.hash = hash;
+		      		});
+		    	} // End if
+		  	});
+
+		  	// BUTTON ANIMATION
+		  	function btn_animation() {
+		  		$(".btn").addClass("onclic");
+		  		setTimeout(() => {
+		  			$(".btn").removeClass("onclic").addClass("validate");
+		  		},2000,removeValidate());
+		  	}
+		  	function removeValidate() {
+		  		setTimeout(() => {
+		  			$(".btn").removeClass("validate");
+		  		},3800,dull_InputText());
+		  	}
+		  	function dull_InputText() {
+		  		setTimeout(() => {
+		  			$("input").val('');
+		  			$("textarea").val('');
+		  		},2000);
+		  	}
+		  	
+		  	// FOR INPUT FIELDS
+		  	$(".inputBox").on({
+		  		mouseover: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#45A29E");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	mouseleave: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		
+
+		  	  		if($current_input.val() == ""){
+		  	  			$current_input.css("border-bottom-color", "gray");
+		  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
+		  	  		}else{
+		  	  			$current_input.css("border-bottom-color", "#54C4C0");
+		  	  			$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		}
+		  	  	},
+		  	  	click: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#54C4C0");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	input: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#54C4C0");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	off: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.prop('disabled', true); //makes it disabled
+
+		  	  		if($current_input.val() == ""){
+		  	  			$current_input.css("border-bottom-color", "gray");
+		  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
+		  	  		}else{
+		  	  			$current_input.css("border-bottom-color", "#45A29E");
+		  	  			$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
+		  	  		}
+		  	  	}
+		  	});
+
+		  	// FOR TEXTAREA FIELDS
+		  	$("#textarea_box").on({
+		  		mouseover: function(){
+		  	  		var $current_input = $(this).find("textarea");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#45A29E");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	mouseleave: function(){
+		  	  		var $current_input = $(this).find("textarea");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.prop('disabled', true); //makes it disabled
+
+		  	  		if($current_input.val() == ""){
+		  	  			$current_input.css("border-bottom-color", "gray");
+		  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
+		  	  		}else{
+		  	  			$current_input.css("border-bottom-color", "#54C4C0");
+		  	  			$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		}
+		  	  	},
+		  	  	input: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#54C4C0");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	click: function(){
+		  	  		var $current_input = $(this).find("textarea");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#54C4C0");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	off: function(){
+		  	  		var $current_input = $(this).find("textarea");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.prop('disabled', true); //makes it disabled
+
+		  	  		if($current_input.val() == ""){
+		  	  			$current_input.css("border-bottom-color", "gray");
+		  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
+		  	  		}else{
+		  	  			$current_input.css("border-bottom-color", "#45A29E");
+		  	  			$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
+		  	  		}
+		  	  	}
+		  	});
+
+		  	// VALIDATING FORM INPUT
+		  	$('#contact_form').submit(function (e) {
+		  	    e.preventDefault();
+		  	    if (validate() == true) {
+		  	    	btn_animation();
+		  	    }
+		  	});
+		  	function validate(){
+		  		var isValid = true;
+		  		if($("#first_name").val() == ""){
+		  			$("#first_name_err").html("Please Enter First Name.");
+		  			isValid = false;
+		  		}else{
+		  			$("#first_name_err").html("");
+		  		}
+		  		if($("#last_name").val() == ""){
+		  			$("#last_name_err").html("Please Enter Last Name.");
+		  			isValid = false;
+		  		}else{
+		  			$("#last_name_err").html("");
+		  		}
+		  		if($("#email").val() == ""){
+		  			$("#email_err").html("Please Enter Your E-mail.");
+		  			isValid = false;
+		  		}else{
+		  			var email_format = /[0-9a-zA-Z](@)[a-zA-Z].*[.](com)$/;
+		  			if (!($("#email").val().match(email_format))) {
+		  				$("#email_err").html("Enter E-mail in Correct Format.");
+		  				isValid = false;
+		  			}else {
+		  				$("#email_err").html("");
+		  			}
+		  		}
+		  		if($("#phone_number").val() == ""){
+		  			$("#phone_number_err").html("Please Enter Your Phone Number.");
+		  			isValid = false;
+		  		}else{
+		  			$("#phone_number_err").html("");
+		  		}
+		  		if($("#message").val() == ""){
+		  			$("#message_err").html("Enter Your Message.");
+		  			isValid = false;
+		  		}else{
+		  			$("#message_err").html("");
+		  		}
+		  		
+		  		return isValid;
+		  	}
+		  	// JS CODE
+
+		});
+	</script>
+	<!-- Font Awesome Link -->
+	<script src="https://kit.fontawesome.com/11b8901115.js"></script>
+	<!-- CSS Link -->
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50"><div style="overflow: hidden;">
+	<!-- ------------------------------------------------------------------------------ Home -->
+	<div id="Section_Home" class="col-xs-12">
+		<div class="bg"></div>
+		<div class="bg bg2"></div>
+		<div class="bg bg3"></div>
+		<div class="col-md-8 col-sm-10 col-xs-12 content">
+		  	<h1 style="padding:0 20vmin;">Hello, I'm <span style="color: var(--highlight)">Rouzaz Aamir Hashmi</span></h1>
+		  	<h1 style="padding-left: 2vmin;">I am a Full Stack Flutter Developer</h1>
+		  	<div><a href="#Section_About">ABOUT ME</a></div>
+		</div>
+	</div>
+
+	<!-- ------------------------------------------------------------------------------ NavBar -->
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li id="nav_Home"><a href="#Section_Home">Home</a></li>
+					<li id="nav_About"><a href="#Section_About">About</a></li>
+					<li id="nav_Services"><a href="#Section_Services">Services</a></li>
+					<li id="nav_Portfolio"><a href="#Section_Portfolio">Portfolio</a></li>
+					<li id="nav_Pricing"><a href="#Section_Pricing">Pricing</a></li>
+					<li id="nav_Contact"><a href="#Section_Contact">Contact</a></li>
+				</ul>
 			</div>
 		</div>
+	</nav>
 
-		<!-- ------------------------------------------------------------------------------ NavBar -->
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>                        
-					</button>
+	<!-- ------------------------------------------------------------------------------ About -->
+	<div id="Section_About" class="col-xs-12">
+		<div class="section_title">Why Choose Me?</div>
+		<div class="why_me">
+			<div class="card">
+				<div class="face face1">
+					<div class="content">
+						<div class="icons"><i class="far fa-laugh-beam"></i></div>
+						<h3>Customer Satisfaction</h3>
+					</div>
 				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav">
-						<li id="nav_Home"><a href="#Section_Home">Home</a></li>
-						<li id="nav_About"><a href="#Section_About">About</a></li>
-						<li id="nav_Services"><a href="#Section_Services">Services</a></li>
-						<li id="nav_Portfolio"><a href="#Section_Portfolio">Portfolio</a></li>
-						<li id="nav_Pricing"><a href="#Section_Pricing">Pricing</a></li>
-						<li id="nav_Contact"><a href="#Section_Contact">Contact</a></li>
-					</ul>
+				<div class="face face2">
+					<div class="content">
+						<p>I belive in positive interaction and communication with the customer to bring their creative idea alive.</p>
+					</div>
 				</div>
 			</div>
-		</nav>
-
-		<!-- ------------------------------------------------------------------------------ About -->
-		<div id="Section_About" class="col-xs-12">
-			<div id="SubSection_Features" class="col-xs-12"></div>
-			<div id="SubSection_Intro" class="col-xs-12"></div>
-			<div id="SubSection_Skills" class="col-xs-12"></div>
-		</div>
-
-		<!-- ------------------------------------------------------------------------------ Services -->
-		<div id="Section_Services" class="col-xs-12"></div>
-
-		<!-- ------------------------------------------------------------------------------ Portfolio -->
-		<div id="Section_Portfolio" class="col-xs-12"></div>
-
-		<!-- ------------------------------------------------------------------------------ Pricing -->
-		<div id="Section_Pricing" class="col-xs-12"></div>
-
-		<!-- ------------------------------------------------------------------------------ Contact -->
-	
-		<div id="Section_Contact" class="col-xs-12">
-			<div class="container">
-				<div class="formBx">
-					<form id="contact_form">
-						<h2>Contact Us</h2>
-						<div class="inputBox">
-							<input autocomplete="off" type="text" id="first_name" name="first_name">
-							<span>First name</span>
-							<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="first_name_err"></div>
-						</div>
-						<div class="inputBox">
-							<input autocomplete="off" type="text" id="last_name" name="last_name">
-							<span>Last name</span>
-							<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="last_name_err"></div>
-						</div>
-						<div class="inputBox">
-							<input autocomplete="off" type="number" id="phone_number" name="phone_number">
-							<span>Phone Number</span>
-							<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="phone_number_err"></div>
-						</div>
-						<div class="inputBox">
-							<input autocomplete="off" type="email" id="email" name="email">
-							<span>E-mail Address</span>
-							<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="email_err"></div>
-						</div>
-						<div id="textarea_box">
-							<textarea autocomplete="off" id="message" name="message"></textarea>
-							<span>Message</span>
-							<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="message_err"></div>
-						</div>
-						<div class="inputBox">
-							<button id="submit_btn" name="submit_btn" class="btn" type="submit" form="contact_form"></button>
-						</div>
-					</form>
+			<div class="card">
+				<div class="face face1">
+					<div class="content">
+						<div class="icons"><i class="fas fa-shield-alt"></i></div>
+						<h3>Advance App Security</h3>
+					</div>
 				</div>
-				<div class="imgBx"></div>
+				<div class="face face2">
+					<div class="content">
+						<p>The need for security is the number one priority when designing your app. </p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="face face1">
+					<div class="content">
+						<div class="icons"><i class="fas fa-briefcase"></i></div>
+						<h3>30 Days Free Service</h3>
+					</div>
+				</div>
+				<div class="face face2">
+					<div class="content">
+						<p>The customer is provided with 30 days service for free, after the delivery of app.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="face face1">
+					<div class="content">
+						<div class="icons"><i class="fas fa-cogs"></i></div>
+						<h3>High Quality Work</h3>
+					</div>
+				</div>
+				<div class="face face2">
+					<div class="content">
+						<p>The goal is not just to make an app but to bring high performance and efficency to create a dynamic app.</p>
+					</div>
+				</div>
 			</div>
 		</div>
+		<div class="about_me"></div>
+	</div>
 
-		<!-- ------------------------------------------------------------------------------ Footer -->
-		<div id="Section_Footer" class="col-xs-12"></div>
-			<div class="col-xs-12" id="subSection_Sentence">Bringing Your Vision to Life</div>
-			<div class="col-xs-12" id="subSection_Info">
-				<div class="col-md-offset-1 col-md-4 col-xs-offset-1 col-xs-10 box">
-					<div class="title">About Us</div>
-					<div class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-				</div>
-				<div class="col-md-offset-0 col-md-2 col-sm-3 col-xs-offset-1 col-xs-3 box">
-					<div class="title">Features</div> 
-					<div class="body">
-						<li><a href="#Section_Services">Services</a></li>
-						<li><a href="#Section_Portfolio">Portfolio</a></li>
-						<li><a href="#Section_Pricing">Pricing</a></li>
-						<li><a href="#Section_Contact">Contact</a></li>
+	<!-- ------------------------------------------------------------------------------ Services -->
+	<div id="Section_Services" class="col-xs-12">
+		<div class="section_title">Services</div>
+	</div>
+
+	<!-- ------------------------------------------------------------------------------ Portfolio -->
+	<div id="Section_Portfolio" class="col-xs-12">
+		<div class="section_title">Portfolio</div>
+	</div>
+
+	<!-- ------------------------------------------------------------------------------ Pricing -->
+	<div id="Section_Pricing" class="col-xs-12">
+		<div class="section_title" style="color: white">Package Pricing</div>
+		<div class="container">
+			<!-- CARD 1 -->
+			<div class="card">
+				<div class="card_front">
+					<div class="title_section">
+						<div class="icon"><i class="fas fa-paper-plane"></i></div>
+						<div class="title">Basic</div>
+					</div>
+					<div class="price"><sup>$</sup>70</div>
+					<div class="features_section">
+						<li><i class="fas fa-times"></i>App Submission</li>
+						<li><i class="fas fa-times"></i>Include Source Code</li>
+						<li><i class="fas fa-times"></i>Ad Network Integration</li>
+						<li><i class="fas fa-check"></i>App Icon</li>
+						<li><i class="fas fa-check"></i>Splash Screen</li>
+						<li>1 Mobile Operating Systems</li>
+					</div>
+					<div class="card_btn">
+						<button>Read More</button>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-5 col-xs-8 box">
-					<div class="title">Contact Us</div>
-					<div class="body">
-						<li><i class="fas fa-phone"></i>0309 6706915</li>
-						<li><i class="fas fa-envelope"></i> rozazhashmi406@gmail.com</li>
-						<li><i class="fas fa-map-marker-alt"></i>Lahore, Pakistan</li>
+				<div class="card_back">
+					<div class="package_info">
+						<span>A simple Application with 2 - 6 screens. It contains API integration along with Splash as a complementary bonus !</span>
 					</div>
-				</div>
-				<div class="col-md-2 col-sm-offset-0 col-sm-3 col-xs-offset-1 col-xs-10 box">
-					<div class="title">Follow Us</div>
-					<div class="body">
-						<div class="socials">
-							<a href="#"><i class="fab fa-linkedin-in"></i></a>
-							<a href="#"><i class="fab fa-google"></i></a>
-							<a href="#"><i class="fab fa-facebook-f"></i></a>
-							<a href="#"><i class="fab fa-github-alt"></i></a>
-						</div>
+					<div class="revision">
+						<span>Revisions</span>
+						<span>3</span>
+					</div>
+					<div class="delievery">
+						<span>Delivery Days</span>
+						<span>5 Days</span>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-12" id="subSection_Copyright">Copyright <span style="color: var(--highlight);font-weight: lighter;font-size: 15px"><i class="far fa-copyright"></i></span> Rouzaz Aamir Hashmi 2020</div>
-		</div>	
-	</body>
+		</div>
+	</div>
+
+	<!-- ------------------------------------------------------------------------------ Contact -->
+	<div id="Section_Contact" class="col-xs-12">
+		<div class="section_title">Contact Me</div>
+		<div class="container">
+			<form id="contact_form">
+				<div class="inputBox">
+					<input autocomplete="off" type="text" id="first_name" name="first_name">
+					<span>First name</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="first_name_err"></div>
+				</div>
+				<div class="inputBox">
+					<input autocomplete="off" type="text" id="last_name" name="last_name">
+					<span>Last name</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="last_name_err"></div>
+				</div>
+				<div class="inputBox">
+					<input autocomplete="off" type="number" id="phone_number" name="phone_number">
+					<span>Phone Number</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="phone_number_err"></div>
+				</div>
+				<div class="inputBox">
+					<input autocomplete="off" type="email" id="email" name="email">
+					<span>E-mail Address</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="email_err"></div>
+				</div>
+				<div id="textarea_box">
+					<textarea autocomplete="off" id="message" name="message"></textarea>
+					<span>Message</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="message_err"></div>
+				</div>
+				<div class="inputBox">
+					<button id="submit_btn" name="submit_btn" class="btn" type="submit" form="contact_form"></button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- ------------------------------------------------------------------------------ Footer -->
+	<div id="Section_Footer" class="col-xs-12"></div>
+		<div class="col-xs-12" id="subSection_Sentence">Bringing Your Vision to Life</div>
+		<div class="col-xs-12" id="subSection_Info">
+			<div class="col-md-offset-1 col-md-4 col-xs-offset-1 col-xs-10 box">
+				<div class="title">About Us</div>
+				<div class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+			</div>
+			<div class="col-md-offset-0 col-md-2 col-sm-3 col-xs-offset-1 col-xs-3 box">
+				<div class="title">Features</div> 
+				<div class="body">
+					<li><a href="#Section_Services">Services</a></li>
+					<li><a href="#Section_Portfolio">Portfolio</a></li>
+					<li><a href="#Section_Pricing">Pricing</a></li>
+					<li><a href="#Section_Contact">Contact</a></li>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-5 col-xs-8 box">
+				<div class="title">Contact Us</div>
+				<div class="body">
+					<li><i class="fas fa-phone"></i>0309 6706915</li>
+					<li><i class="fas fa-envelope"></i> rozazhashmi406@gmail.com</li>
+					<li><i class="fas fa-map-marker-alt"></i>Lahore, Pakistan</li>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-offset-0 col-sm-3 col-xs-offset-1 col-xs-10 box">
+				<div class="title">Follow Us</div>
+				<div class="body">
+					<div class="socials">
+						<a href="#"><i class="fab fa-linkedin-in"></i></a>
+						<a href="#"><i class="fab fa-google"></i></a>
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+						<a href="#"><i class="fab fa-github-alt"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12" id="subSection_Copyright">Copyright <span style="color: var(--highlight);font-weight: lighter;font-size: 15px"><i class="far fa-copyright"></i></span> Rouzaz Aamir Hashmi 2020</div>
+	</div></body>
 </html>

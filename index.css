@@ -27,13 +27,22 @@ body{
 li{
     list-style-type: none;
 }
+.section_title{
+    width: 100%;
+    float: left;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: 4px;
+}
 /* ---------------------------------------------------------------------- Home Section */
 #Section_Home{
     height: 700px;
     background-color: white;
     z-index: 1;
 }
-.bg {
+#Section_Home .bg {
     animation:slide 3s ease-in-out infinite alternate;
     background-image: linear-gradient(-60deg, #0B0C10 50%, #1F2833 50%);
     bottom:0;
@@ -44,14 +53,14 @@ li{
     top:0;
     z-index: -1;
 }
-.bg2 {
+#Section_Home .bg2 {
     animation-direction:alternate-reverse;
     animation-duration:4s;
 }
-.bg3 {
+#Section_Home .bg3 {
     animation-duration:5s;
 }
-.content {
+#Section_Home .content {
     color: white;
     font-family: var(--titleFont);
     position: relative;
@@ -60,10 +69,10 @@ li{
     top: 45%;
     transform:translate(-50%, -50%);
 }
-.content div{
+#Section_Home .content div{
     margin-top: 6%;
 }
-.content div a{
+#Section_Home .content div a{
     position: relative;
     padding: 15px 25px;
     letter-spacing: 3px;
@@ -74,10 +83,10 @@ li{
     transition:0.5s;
     transform: scaleX(1);
 }
-.content div a:hover{
+#Section_Home .content div a:hover{
     border: 0px solid var(--highlight);
 }
-.content div a:before{
+#Section_Home .content div a:before{
     content: '';
     position: absolute;
     top: 0;
@@ -90,7 +99,7 @@ li{
     transform: scaleX(0);
     z-index: -1;
 }
-.content div a:hover:before{
+#Section_Home .content div a:hover:before{
     transform-origin: right;
     transition: transform 0.5s ease;
     transform: scaleX(1);
@@ -106,10 +115,79 @@ li{
 
 /* ---------------------------------------------------------------------- About Section */
 #Section_About{
-    height: 700px;
-    background-color: white;
 }
+#Section_About .why_me{
+    width: 98%;
+    position: relative;
+    margin-left: 1%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: wrap;
+    margin-bottom: 100px;
+}
+#Section_About .why_me .card{
+    position: relative;
+    margin: 0 10px;
+    float: left;
+}
+#Section_About .why_me .card .face{
+    width: 280px;
+    transition: 0.5s;
+}
+#Section_About .why_me .card .face.face1{
+    height: 200px;
+    position: relative;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(50px);
 
+}
+#Section_About .why_me .card:hover .face.face1{
+    background: var(--highlightShade);
+    transform: translateY(0);
+}
+#Section_About .why_me .card .face.face1 .content{
+    opacity: 0.2;
+    transition: 0.5s;
+}
+#Section_About .why_me .card:hover .face.face1 .content{
+    opacity: 1;
+}
+#Section_About .why_me .card .face.face1 .content .icons{
+    font-size: 5em;
+    color: #fff;
+    text-align: center;
+}
+#Section_About .why_me .card .face.face1 .content h3{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #fff;
+    font-size: 1.2em;
+    text-align: center;
+}
+#Section_About .why_me .card .face.face2{
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(-50px);
+    height: 100px;
+    box-shadow: 2.5px 2.5px 20px rgba(0,0,0,0.1);
+}
+#Section_About .why_me .card:hover .face.face2{
+    transform: translateY(0);
+}
+#Section_About .why_me .card .face.face2 .content p{
+    margin: 0;
+    padding: 0;
+}
 /* ---------------------------------------------------------------------- Services Section */
 #Section_Services{
     height: 700px;
@@ -120,85 +198,51 @@ li{
 /* ---------------------------------------------------------------------- Portfolio Section */
 #Section_Portfolio{
     height: 700px;
-    border: 2px solid black;
     background-color: white;
 }
 
 /* ---------------------------------------------------------------------- Pricing Section */
 #Section_Pricing{
-    height: 700px;
-    border: 2px solid black;
+    width: 100%;
     background-color: white;
+    background: linear-gradient(205deg, #393939 50%, transparent 50%);
 }
-
 /* ---------------------------------------------------------------------- Contact Section */
 #Section_Contact{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background-color: white;
 }
-
-.container{
+#Section_Contact .container{
     position: relative;
-    width: 100%;
-    max-width: 1100px;
-    margin: 20px;
-    min-height: 100vh;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin:50px 0;
+    margin: 155px 2.5%;
+    padding-top: 0
 }
-.container .formBx{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.container .formBx form{
-    width: 90%;
+#Section_Contact .container form{
+    width: 95%;
+    margin:0 2.5%;
     position: relative;
     padding: 0 0px;
     background-color: white;
 }
-.container .formBx form h2{
-    color: black;
-    font-weight: 500;
-    font-size: 2em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-.container .formBx form .inputBox{
+#Section_Contact .container form .inputBox{
     position: relative;
     margin-bottom: 50px;
-    width: 48%;
+    width: 47%;
     float: left;
+    margin-left: 2%;
 }
-.container .formBx form .inputBox:nth-child(odd){
-    position: relative;
-    margin-bottom: 50px;
-    width: 48%;
-    float: left;
-    margin-left: 3%;
-}
-#textarea_box{
-    position: relative;
-    margin-bottom: 20px;
-    width: 100%;
-    float: left;
-}
-.container .formBx form .inputBox:last-child{
+#Section_Contact .container form .inputBox:last-child{
     margin-bottom: 0px;
-    width: 100%;
+    width: 94%;
     text-align: center;
-    margin-left: 0;
+    margin-left: 2%;
 }
-.container .formBx form .inputBox input{
+#Section_Contact .container form .inputBox input{
     position: relative;
     background-color: transparent;
     outline: none;
@@ -211,6 +255,24 @@ li{
     font-weight: 300px;
     border-bottom: 2px solid gray;
     resize: none;
+}
+#Section_Contact .container form .inputBox span{
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    font-weight: 300px;
+    display: inline-block;
+    pointer-events: none;
+    letter-spacing: 1px;
+    color: gray;
+    transition: all 0.2s;
+}
+#textarea_box{
+    position: relative;
+    margin-bottom: 20px;
+    width: 94%;
+    float: left;
+    margin-left: 2%;
 }
 #textarea_box textarea{
     position: relative;
@@ -225,7 +287,7 @@ li{
     font-weight: 300px;
     border-bottom: 2px solid gray;
     resize: none;
-    height: 225px;
+    height: 200px;
 }
 #textarea_box span{
     position: absolute;
@@ -239,7 +301,7 @@ li{
     transition: all 0.2s;
 }
 .btn{
-   width: 130px;
+   width: 135px;
    height: 40px;
    border: 3px solid var(--highlightShade);
    background-color: white;
@@ -264,10 +326,8 @@ li{
     letter-spacing: 4px;
     outline: none;
 }
-
 .btn:after{
-    font-family: sans-serif;
-    font-weight: 900;
+    font-weight: bolder;
     content: "SUBMIT";
     outline: none;
 }
@@ -305,17 +365,6 @@ li{
         transform: rotate(360deg);
     }
 }
-.container .formBx form .inputBox span{
-    position: absolute;
-    left: 0;
-    font-size: 16px;
-    font-weight: 300px;
-    display: inline-block;
-    pointer-events: none;
-    letter-spacing: 1px;
-    color: gray;
-    transition: all 0.2s;
-}
 .label_move_up_highlight{
     transform: translateY(-24px);
     font-size: 14px !important;
@@ -348,7 +397,6 @@ li{
 #subSection_Info .body{
     color: lightgray;
     margin-top: 10px;
-
 }
 #subSection_Info .body li{
     margin-bottom: 20px;
@@ -357,7 +405,6 @@ li{
     text-decoration: none;
     color: lightgray;
 }
-
 #subSection_Info .body li i{
     color: var(--highlight);
     margin-right: 15px;
@@ -379,10 +426,10 @@ li{
     letter-spacing: 2px;
     word-spacing: 2.5px
 }
-/* ============================================================================================== */
+
 /* ---------------------------------------------------------------------- Extra Small Screen (xs) */
 @media (max-width: 768px) {
-    .content div{
+    #Section_Home .content div{
         margin-top: 12%;
     }
     #subSection_Sentence{
@@ -398,16 +445,15 @@ li{
     #subSection_Info .box:nth-child(4){
         margin-bottom: 40px;
     }
-    .container .formBx form .inputBox,
-    .container .formBx form .inputBox:nth-child(odd){
-        width: 100%;
-        margin-left: 0;
+    #Section_Contact .container form .inputBox{
+        width: 94%;
+        margin-left: 2%;
     }
 }
 
 /* ---------------------------------------------------------------------- Small Screen  (sm) */
 @media (min-width: 769px) {
-    .content div{
+    #Section_Home .content div{
         margin-top: 12%;
     }
     #subSection_Sentence{
@@ -424,7 +470,7 @@ li{
 
 /* ---------------------------------------------------------------------- Medium Screen (md) */
 @media (min-width: 992px) {
-    .content div{
+    #Section_Home .content div{
         margin-top: 6%;
     }
     #subSection_Sentence{
