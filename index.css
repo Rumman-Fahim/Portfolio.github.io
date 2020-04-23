@@ -149,7 +149,6 @@ li{
 #Section_About .why_me .card:hover .face.face1{
     background: var(--highlightShade);
     transform: translateY(0);
-    cursor: pointer;
 }
 #Section_About .why_me .card .face.face1 .content{
     opacity: 0.2;
@@ -157,7 +156,6 @@ li{
 }
 #Section_About .why_me .card:hover .face.face1 .content{
     opacity: 1;
-    cursor: pointer;
 }
 #Section_About .why_me .card .face.face1 .content .icons{
     font-size: 5em;
@@ -185,7 +183,6 @@ li{
 }
 #Section_About .why_me .card:hover .face.face2{
     transform: translateY(0);
-    cursor: pointer;
 }
 #Section_About .why_me .card .face.face2 .content p{
     margin: 0;
