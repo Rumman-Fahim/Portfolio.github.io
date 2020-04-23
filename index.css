@@ -461,12 +461,12 @@ li{ list-style-type: none; }
         margin-left: 2%;
     }
     .navbar{
-        height: 8vh;
+        height: 7.5vh;
         margin-bottom: 0;
         background: green;
     }
     #Section_Home{
-        height: 87vh;
+        height: 89vh;
         z-index: 1;
     }
 }
