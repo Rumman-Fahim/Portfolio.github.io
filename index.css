@@ -38,7 +38,7 @@ li{ list-style-type: none; }
 }
 /* ---------------------------------------------------------------------- Home Section */
 #Section_Home{
-    height: 92.4vh;
+    height: 91.5vh;
     z-index: 1;
 }
 #Section_Home .bg {
@@ -460,6 +460,15 @@ li{ list-style-type: none; }
         width: 94%;
         margin-left: 2%;
     }
+    .navbar{
+        height: 8vh;
+        margin-bottom: 0;
+        background: blue;
+    }
+    #Section_Home{
+        height: 87vh;
+        z-index: 1;
+    }
 }
 
 /* ---------------------------------------------------------------------- Small Screen  (sm) */
@@ -477,6 +486,15 @@ li{ list-style-type: none; }
     #subSection_Info .box:nth-child(4){
         margin-bottom: 0;
     }
+    .navbar{
+        height: 8vh;
+        margin-bottom: 0;
+        background: blue;
+    }
+    #Section_Home{
+        height: 90vh;
+        z-index: 1;
+    }
 }
 
 /* ---------------------------------------------------------------------- Medium Screen (md) */
@@ -491,6 +509,15 @@ li{ list-style-type: none; }
     #subSection_Info .box:nth-child(1){
        padding-right: 50px;
    }
+    .navbar{
+        height: 7.5vh;
+        margin-bottom: 0;
+        background: red;
+    }
+    #Section_Home{
+        height: 92.5vh;
+        z-index: 1;
+    }
 }
 
 /* ---------------------------------------------------------------------- Large Screen  (lg) */
