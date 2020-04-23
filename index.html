@@ -12,82 +12,76 @@
 	<script>
 		$(document).ready(function(){
 			// STICKY NAVBAR
-			$(window).scroll(function() {    
-			    var scroll = $(window).scrollTop();
+			$(document).scroll(function() {    
+			    var scroll = $(document).scrollTop();
+			    var home = $('#Section_Home').outerHeight();
 
-			    if (scroll >= 697) {
-			        $(".navbar").addClass("navbar-fixed-top");
+			    if (scroll >= (home)) {
+			       $(".navbar").addClass("stick_to_top");
 			    } else {
-			        $(".navbar").removeClass("navbar-fixed-top");
+			        $(".navbar").removeClass("stick_to_top");
 			    }   
 			});
 
-			// ACTIVE NAV 
-			$(document).on('scroll', function() {
-				var home = $('#Section_Home').outerHeight() -30;
+			// ACTIVE NAV BAR OPTION 
+			$(document).scroll(function() {
+				var home = $('#Section_Home').outerHeight();
 				var about = $('#Section_About').outerHeight();
 				var services = $('#Section_Services').outerHeight();
 				var portfolio = $('#Section_Portfolio').outerHeight();
 				var pricing = $('#Section_Pricing').outerHeight();
 				var contact = $('#Section_Contact').outerHeight();
-
-				var sectionOne  = home; // 700
-				var sectionTwo  = home + about; //1400
-				var sectionThree= home + about + services; //2100
-				var sectionFour = home + about + services + portfolio; //2800
-				var sectionFive = home + about + services + portfolio + pricing; //3500
-				var sectionSix  = home + about + services + portfolio + pricing + contact; //4200
-
-
-			    if( $(this).scrollTop() >= 0 &&  $(this).scrollTop() < sectionOne){
-			       	$("#nav_Home").addClass("active");
-			       	$("#nav_About").removeClass("active");
-			       	$("#nav_Services").removeClass("active");
-			       	$("#nav_Portfolio").removeClass("active");
-			       	$("#nav_Pricing").removeClass("active");
-			       	$("#nav_Contact").removeClass("active");
-			    } 
-			    else if( $(this).scrollTop() >= sectionOne &&  $(this).scrollTop() < sectionTwo ){
-			    	$("#nav_About").addClass("active");
+			    var scroll = $(window).scrollTop();
+		        // Here You can add your conditions according to your requirments
+		        if (scroll == home.offset().top ) {
+		            $("#nav_Home").addClass("active");
+		            $("#nav_About").removeClass("active");
+		            $("#nav_Services").removeClass("active");
+		            $("#nav_Portfolio").removeClass("active");
+		            $("#nav_Pricing").removeClass("active");
+		            $("#nav_Contact").removeClass("active");
+		        }
+		        else if(scroll == about.offset().top ){
+		        	$("#nav_About").addClass("active");
 			    	$("#nav_Home").removeClass("active");
 			       	$("#nav_Services").removeClass("active");
 			       	$("#nav_Portfolio").removeClass("active");
 			       	$("#nav_Pricing").removeClass("active");
 			       	$("#nav_Contact").removeClass("active");
-			    }
-			    else if( $(this).scrollTop() >= sectionTwo &&  $(this).scrollTop() < sectionThree ){
-			    	$("#nav_Services").addClass("active");
+		        }
+		        else if(scroll == services.offset().top ){
+		        	$("#nav_Services").addClass("active");
 			    	$("#nav_Home").removeClass("active");
 			       	$("#nav_About").removeClass("active");
 			       	$("#nav_Portfolio").removeClass("active");
 			       	$("#nav_Pricing").removeClass("active");
 			       	$("#nav_Contact").removeClass("active");
-			    }
-			    else if( $(this).scrollTop() >= sectionThree &&  $(this).scrollTop() < sectionFour ){
-			    	$("#nav_Portfolio").addClass("active");
+		        }
+		        else if(scroll == portfolio.offset().top ){
+			       	$("#nav_Portfolio").addClass("active");
 			    	$("#nav_Home").removeClass("active");
 			       	$("#nav_About").removeClass("active");
-			       	$("#nav_Services").removeClass("active");
+		        	$("#nav_Services").removeClass("active");
 			       	$("#nav_Pricing").removeClass("active");
 			       	$("#nav_Contact").removeClass("active");
-			    }
-			    else if( $(this).scrollTop() >= sectionFour &&  $(this).scrollTop() < sectionFive ){
-			    	$("#nav_Pricing").addClass("active");
+		        }
+		        else if(scroll == pricing.offset().top ){
+			       	$("#nav_Pricing").addClass("active");
 			    	$("#nav_Home").removeClass("active");
 			       	$("#nav_About").removeClass("active");
-			       	$("#nav_Services").removeClass("active");
+		        	$("#nav_Services").removeClass("active");
 			       	$("#nav_Portfolio").removeClass("active");
 			       	$("#nav_Contact").removeClass("active");
-			    }
-			    else if( $(this).scrollTop() >= sectionFive &&  $(this).scrollTop() < sectionSix ){
-			    	$("#nav_Contact").addClass("active");
+		        }
+		        else if(scroll == contact.offset().top ){
+			       	$("#nav_Contact").addClass("active");
 			    	$("#nav_Home").removeClass("active");
 			       	$("#nav_About").removeClass("active");
-			       	$("#nav_Services").removeClass("active");
+		        	$("#nav_Services").removeClass("active");
 			       	$("#nav_Portfolio").removeClass("active");
 			       	$("#nav_Pricing").removeClass("active");
-			    }
-			});
+		        }
+		    });
 
 		  	// SMOOTH SCROLLING
 		  	$("a").on('click', function(event) {
@@ -300,7 +294,7 @@
 	</div>
 
 	<!-- ------------------------------------------------------------------------------ NavBar -->
-	<nav class="navbar navbar-inverse">
+	<nav class="col-xs-12 navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -324,7 +318,8 @@
 
 	<!-- ------------------------------------------------------------------------------ About -->
 	<div id="Section_About" class="col-xs-12">
-		<div class="section_title">Why Choose Me?</div>
+		<!-- WHY ME SUB-SECTION -->
+		<div class="section_title">About</div>
 		<div class="why_me">
 			<div class="card" onclick="void(0)">
 				<div class="face face1">
@@ -378,6 +373,11 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<!-- ABOUT ME SUB-SECTION -->
+		<div class="col-xs-12 about_me">
+			<div class="img"></div>
+			<div class="text"></div>
 		</div>
 	</div>
 
