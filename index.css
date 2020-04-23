@@ -463,7 +463,7 @@ li{ list-style-type: none; }
     .navbar{
         height: 8vh;
         margin-bottom: 0;
-        background: blue;
+        background: green;
     }
     #Section_Home{
         height: 87vh;
@@ -487,7 +487,7 @@ li{ list-style-type: none; }
         margin-bottom: 0;
     }
     .navbar{
-        height: 8vh;
+        height: 7.5vh;
         margin-bottom: 0;
         background: blue;
     }
