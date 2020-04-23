@@ -19,7 +19,7 @@ body{ font-family: var(--bodyFont1); }
     z-index: 100;
 }
 .navbar{
-    height: 7vh;
+    height: 50px;
     margin-bottom: 0;
 }
 .navbar-toggle{
