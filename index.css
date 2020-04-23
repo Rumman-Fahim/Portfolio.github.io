@@ -19,7 +19,7 @@ body{ font-family: var(--bodyFont1); }
     z-index: 100;
 }
 .navbar{
-    height: 50px;
+    height: 7.5vh;
     margin-bottom: 0;
 }
 .navbar-toggle{
@@ -32,13 +32,13 @@ li{ list-style-type: none; }
     text-align: center;
     font-size: 2em;
     letter-spacing: 4px;
-    margin-top: 100px;
+    margin-top: 13vh;
     margin-bottom: 30px;
     background: red
 }
 /* ---------------------------------------------------------------------- Home Section */
 #Section_Home{
-    height: calc(100vh - 50px);
+    height: 92.4vh;
     z-index: 1;
 }
 #Section_Home .bg {
