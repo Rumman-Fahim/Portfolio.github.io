@@ -531,12 +531,17 @@ li {
 /* ---------------------------------------------------------------------- Extra Small Screen (xs) */
 @media (max-width: 400px) {
     #section_About .about_me .img_box .img{
-		width: 250px;
-		height: 300px;
+		width: 200px;
+		height: 250px;
 	}
 	#section_About .about_me .img_box{
-		width: 300px;
-    	height: 350px;
+		width: 250px;
+    	height: 300px;
+    }
+    #section_About .about_me .info_box .title{
+    	font-size: 2em;
+    	font-weight: bolder;
+    	margin-bottom: 10px
     }
 }
 /* ---------------------------------------------------------------------- Extra Small Screen (xs) */
@@ -558,14 +563,19 @@ li {
         width: 94%;
         margin-left: 2%;
     }
-    #section_About .about_me .img_box{
-    	width: 350px;
-    	height: 400px;
-    }
     #section_About .about_me .img_box .img{
-		width: 300px;
-		height: 350px;
+		width: 250px;
+		height: 300px;
 	}
+	#section_About .about_me .img_box{
+    	width: 300px;
+    	height: 350px;
+    }
+    #section_About .about_me .info_box .title{
+    	font-size: 2.5em;
+    	font-weight: bolder;
+    	margin-bottom: 10px;
+    }
 }
 
 /* ---------------------------------------------------------------------- Small Screen  (sm) */
@@ -580,14 +590,19 @@ li {
     #subSection_Info .box:nth-child(4){
         margin-bottom: 0;
     }
-    #section_About .about_me .img_box{
-    	width: 400px;
-    	height: 450px;
-    }
     #section_About .about_me .img_box .img{
-		width: 350px;
-		height: 400px;
+		width: 300px;
+		height: 350px;
 	}
+	#section_About .about_me .img_box{
+    	width: 350px;
+    	height: 400px;
+    }
+    #section_About .about_me .info_box .title{
+    	font-size: 3em;
+    	font-weight: bolder;
+    	margin-bottom: 10px;
+    }
 }
 
 /* ---------------------------------------------------------------------- Medium Screen (md) */
@@ -599,14 +614,14 @@ li {
     #subSection_Info .box:nth-child(1){
        padding-right: 50px;
    }
-   #section_About .about_me .img_box{
-    	width: 400px;
-    	height: 450px
-    }
     #section_About .about_me .img_box .img{
 		width: 350px;
 		height: 400px;
 	}
+	#section_About .about_me .img_box{
+    	width: 400px;
+    	height: 450px
+    }
 }
 
 /* ---------------------------------------------------------------------- Large Screen  (lg) */
