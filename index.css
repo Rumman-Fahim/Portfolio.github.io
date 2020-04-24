@@ -11,6 +11,7 @@ html,body {
     margin: 0;
     padding: 0;
     font-family: var(--body_font);
+    overflow-x: hidden;
 }
 .fixed_navbar {
 	position: fixed;
@@ -170,6 +171,7 @@ li {
     width: 280px;
     transition: 0.5s;
 }
+/* FACE # 1 */
 #section_About .why_choose_me .card .face.face1{
     height: 200px;
     position: relative;
@@ -203,6 +205,7 @@ li {
     font-size: 1.2em;
     text-align: center;
 }
+/* FACE # 2 */
 #section_About .why_choose_me .card .face.face2{
     position: relative;
     background: #fff;
@@ -223,6 +226,64 @@ li {
     padding: 0;
 }
 /* -------------------------------------------- About Me */
+/* TEXT */
+#section_About .about_me{
+	padding: 50px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: wrap;
+	margin-bottom: 100px;
+}
+#section_About .about_me .info_box{
+	width: 450px;
+	height: 450px;
+	padding: 30px 40px;
+	margin-left: 50px;
+}
+#section_About .about_me .info_box .title{
+	font-size: 3em;
+	font-weight: bolder;
+}
+#section_About .about_me .info_box .body{
+	line-height: 25px;
+}
+#section_About .about_me .info_box .name{
+	font-weight: bolder;
+}
+/* IMAGE */
+#section_About .about_me .img_box{
+	width: 450px;
+	height: 450px;
+}
+#section_About .about_me .img_box .img{
+	width: 400px;
+	height: 400px;
+}
+#section_About .about_me .img_box .img .your_image{
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	object-fit: cover;
+	z-index: 2;
+	transform: translateX(50px);	
+}
+#section_About .about_me .img_box .img .square{
+	border: 4px solid var(--div_highlight);
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	z-index: 1;
+	transform: translate(25px,-25px);
+}
+#section_About .about_me .img_box .img .bg_img{
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	object-fit: cover;
+	transform: translateY(50px);
+	
+}
 /* ================================================================================== SERVICES SECTION */
 #section_Services {
 	padding-top:50px;
