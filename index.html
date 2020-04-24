@@ -59,6 +59,174 @@
                     scrollTop: $(".navbar").offset().top
                 }, 800);
             });
+
+            // BUTTON ANIMATION
+		  	function btn_animation() {
+		  		$(".btn").addClass("onclic");
+		  		setTimeout(() => {
+		  			$(".btn").removeClass("onclic").addClass("validate");
+		  		},2000,removeValidate());
+		  	}
+		  	function removeValidate() {
+		  		setTimeout(() => {
+		  			$(".btn").removeClass("validate");
+		  		},3800,dull_InputText());
+		  	}
+		  	function dull_InputText() {
+		  		setTimeout(() => {
+		  			$("input").val('');
+		  			$("textarea").val('');
+		  		},2000);
+		  	}
+		  	// FOR INPUT FIELDS
+		  	$(".inputBox").on({
+		  		mouseover: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#45A29E");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	mouseleave: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		
+
+		  	  		if($current_input.val() == ""){
+		  	  			$current_input.css("border-bottom-color", "gray");
+		  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
+		  	  		}else{
+		  	  			$current_input.css("border-bottom-color", "#54C4C0");
+		  	  			$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		}
+		  	  	},
+		  	  	click: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#54C4C0");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	input: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#54C4C0");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	off: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.prop('disabled', true); //makes it disabled
+
+		  	  		if($current_input.val() == ""){
+		  	  			$current_input.css("border-bottom-color", "gray");
+		  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
+		  	  		}else{
+		  	  			$current_input.css("border-bottom-color", "#45A29E");
+		  	  			$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
+		  	  		}
+		  	  	}
+		  	});
+
+		  	// FOR TEXTAREA FIELDS
+		  	$("#textarea_box").on({
+		  		mouseover: function(){
+		  	  		var $current_input = $(this).find("textarea");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#45A29E");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	mouseleave: function(){
+		  	  		var $current_input = $(this).find("textarea");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.prop('disabled', true); //makes it disabled
+
+		  	  		if($current_input.val() == ""){
+		  	  			$current_input.css("border-bottom-color", "gray");
+		  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
+		  	  		}else{
+		  	  			$current_input.css("border-bottom-color", "#54C4C0");
+		  	  			$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		}
+		  	  	},
+		  	  	input: function(){
+		  	  		var $current_input = $(this).find("input");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#54C4C0");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	click: function(){
+		  	  		var $current_input = $(this).find("textarea");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.css("border-bottom-color", "#54C4C0");
+		  	  		$current_label.addClass("label_move_up_highlight").css("color","#54C4C0");
+		  	  		$current_input.prop('disabled', false); //makes it enabled
+		  	  	},
+		  	  	off: function(){
+		  	  		var $current_input = $(this).find("textarea");
+		  	  		var $current_label = $(this).find("span");
+		  	  		$current_input.prop('disabled', true); //makes it disabled
+
+		  	  		if($current_input.val() == ""){
+		  	  			$current_input.css("border-bottom-color", "gray");
+		  	  			$current_label.removeClass("label_move_up_highlight").css("color","gray");
+		  	  		}else{
+		  	  			$current_input.css("border-bottom-color", "#45A29E");
+		  	  			$current_label.addClass("label_move_up_highlight").css("color","#45A29E");
+		  	  		}
+		  	  	}
+		  	});
+		  	// VALIDATING FORM INPUT
+		  	$('#contact_form').submit(function (e) {
+		  	    e.preventDefault();
+		  	    if (validate() == true) {
+		  	    	btn_animation();
+		  	    }
+		  	});
+		  	// FORM VALIDATION 
+		  	function validate(){
+		  		var isValid = true;
+		  		if($("#first_name").val() == ""){
+		  			$("#first_name_err").html("Please Enter First Name.");
+		  			isValid = false;
+		  		}else{
+		  			$("#first_name_err").html("");
+		  		}
+		  		if($("#last_name").val() == ""){
+		  			$("#last_name_err").html("Please Enter Last Name.");
+		  			isValid = false;
+		  		}else{
+		  			$("#last_name_err").html("");
+		  		}
+		  		if($("#email").val() == ""){
+		  			$("#email_err").html("Please Enter Your E-mail.");
+		  			isValid = false;
+		  		}else{
+		  			var email_format = /[0-9a-zA-Z](@)[a-zA-Z].*[.](com)$/;
+		  			if (!($("#email").val().match(email_format))) {
+		  				$("#email_err").html("Enter E-mail in Correct Format.");
+		  				isValid = false;
+		  			}else {
+		  				$("#email_err").html("");
+		  			}
+		  		}
+		  		if($("#phone_number").val() == ""){
+		  			$("#phone_number_err").html("Please Enter Your Phone Number.");
+		  			isValid = false;
+		  		}else{
+		  			$("#phone_number_err").html("");
+		  		}
+		  		if($("#message").val() == ""){
+		  			$("#message_err").html("Enter Your Message.");
+		  			isValid = false;
+		  		}else{
+		  			$("#message_err").html("");
+		  		}
+		  		return isValid;
+		  	}
 		});
 	</script>
 </head>
@@ -201,11 +369,95 @@
 			Contact
 			<span style="color: var(--text_highlight);">&mdash;</span>
 		</div>
+		<div class="container">
+			<form id="contact_form">
+				<div class="inputBox">
+					<input autocomplete="off" type="text" id="first_name" name="first_name">
+					<span>First name</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="first_name_err"></div>
+				</div>
+				<div class="inputBox">
+					<input autocomplete="off" type="text" id="last_name" name="last_name">
+					<span>Last name</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="last_name_err"></div>
+				</div>
+				<div class="inputBox">
+					<input autocomplete="off" type="number" id="phone_number" name="phone_number">
+					<span>Phone Number</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="phone_number_err"></div>
+				</div>
+				<div class="inputBox">
+					<input autocomplete="off" type="email" id="email" name="email">
+					<span>E-mail Address</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="email_err"></div>
+				</div>
+				<div id="textarea_box">
+					<textarea autocomplete="off" id="message" name="message"></textarea>
+					<span>Message</span>
+					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="message_err"></div>
+				</div>
+				<div class="inputBox">
+					<button id="submit_btn" name="submit_btn" class="btn" type="submit" form="contact_form"></button>
+				</div>
+			</form>
+		</div>
 	</div>
 
 	<!-- ------------------------------------------------------------------------------- FOOTER SECTION -->
-	<div id="section_Footer" class="container-fluid">
-		<div class="col-xs-12 section_title">Footer</div>
+	<div id="Section_Footer" class="col-xs-12">
+		<!-- Sentence -->
+		<div class="col-xs-12" id="subSection_Sentence">Bringing Your Vision to Life</div>
+		<!-- Info -->
+		<div class="col-xs-12" id="subSection_Info">
+			<div class="col-md-offset-1 col-md-4 col-xs-offset-1 col-xs-10 box">
+				<div class="title">About Us</div>
+				<div class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+			</div>
+			<div class="col-md-offset-0 col-md-2 col-sm-3 col-xs-offset-1 col-xs-3 box">
+				<div class="title">Features</div> 
+				<div class="body">
+					<li><a href="#Section_Services">Services</a></li>
+					<li><a href="#Section_Portfolio">Portfolio</a></li>
+					<li><a href="#Section_Pricing">Pricing</a></li>
+					<li><a href="#Section_Contact">Contact</a></li>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-5 col-xs-8 box">
+				<div class="title">Contact Us</div>
+				<div class="body">
+					<li><i class="fas fa-phone"></i>0309 6706915</li>
+					<li><i class="fas fa-envelope"></i> rozazhashmi406@gmail.com</li>
+					<li><i class="fas fa-map-marker-alt"></i>Lahore, Pakistan</li>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-offset-0 col-sm-3 col-xs-offset-1 col-xs-10 box">
+				<div class="title">Follow Us</div>
+				<div class="body">
+					<div class="socials">
+						<a href="#"><i class="fab fa-linkedin-in"></i></a>
+						<a href="#"><i class="fab fa-google"></i></a>
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+						<a href="#"><i class="fab fa-github-alt"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Copyright -->
+		<div class="col-xs-12" id="subSection_Copyright">
+			Copyright 
+			<span style="color: var(--text_highlight);font-weight: lighter;font-size: 15px">
+				<i class="far fa-copyright"></i>
+			</span> 
+			Rouzaz Aamir Hashmi 2020
+			<div>
+				<a style="color:lightgray;font-size: 13px;text-decoration: none;" href="https://www.freepik.com/free-photos-vectors/background">Background vector created by ikatod - www.freepik.com</a>
+			</div>
+			<div>
+				<a style="color:lightgray;font-size: 13px;text-decoration: none;" href="https://www.freepik.com/free-photos-vectors/background">Background vector created by rawpixel.com - www.freepik.com</a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

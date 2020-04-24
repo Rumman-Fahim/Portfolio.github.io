@@ -247,13 +247,275 @@ li {
 /* ================================================================================== CONTACT SECTION */
 #section_Contact {
 	padding-top:50px;
-	height:700px;
-	background-color: #009688;
+	background-color: white;
+	width: 100%;
+    min-height: 100vh;
+}
+#section_Contact .container{
+    position: relative;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 155px 2.5%;
+    padding-top: 0
+}
+#section_Contact .container form{
+    width: 95%;
+    margin:0 2.5%;
+    position: relative;
+    padding: 0 0px;
+    background-color: white;
+}
+#section_Contact .container form .inputBox{
+    position: relative;
+    margin-bottom: 50px;
+    width: 47%;
+    float: left;
+    margin-left: 2%;
+}
+#section_Contact .container form .inputBox:last-child{
+    margin-bottom: 0px;
+    width: 94%;
+    text-align: center;
+    margin-left: 2%;
+}
+#section_Contact .container form .inputBox input{
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    border:none;
+    width: 100%;
+    color: black;
+    padding-bottom: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 300px;
+    border-bottom: 2px solid gray;
+    resize: none;
+}
+#section_Contact .container form .inputBox span{
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    font-weight: 300px;
+    display: inline-block;
+    pointer-events: none;
+    letter-spacing: 1px;
+    color: gray;
+    transition: all 0.2s;
+}
+#textarea_box{
+    position: relative;
+    margin-bottom: 20px;
+    width: 94%;
+    float: left;
+    margin-left: 2%;
+}
+#textarea_box textarea{
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    border:none;
+    width: 100%;
+    color: black;
+    padding-bottom: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 300px;
+    border-bottom: 2px solid gray;
+    resize: none;
+    height: 200px;
+}
+#textarea_box span{
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    font-weight: 300px;
+    display: inline-block;
+    pointer-events: none;
+    letter-spacing: 1px;
+    color: gray;
+    transition: all 0.2s;
+}
+.btn{
+   width: 135px;
+   height: 40px;
+   border: 3px solid var(--div_highlight);
+   background-color: white;
+   border-radius: 40px;
+   color: var(--div_highlight);
+   letter-spacing: 2px;
+   outline: none !important;
+   text-shadow: 0;
+   transition: all 0.25s ease;
+}
+.btn:hover{
+    background-color: var(--div_highlight);
+    color: white;
+    outline: none;
+}
+.btn:focus{
+    background-color: white;
+    color: var(--div_highlight);
+    outline: none;
+}
+.btn:active{
+    letter-spacing: 4px;
+    outline: none;
+}
+.btn:after{
+    font-weight: bolder;
+    content: "SUBMIT";
+    outline: none;
+}
+.onclic{
+    width: 40px;
+    border-color: #bbb;
+    border-width: 4px;
+    font-size: 0;
+    outline: none;
+    border-left-color: var(--div_highlight);
+    animation: rotating 2s 0.25s linear infinite;
+}
+.validate{
+    background-color: var(--div_highlight);
+    color: white;
+    font-size: 13px;
+    outline: none;
+}
+.validate:focus{
+    background-color: var(--div_highlight);
+    color: white;
+    font-size: 13px;
+    outline: none;
+}
+.validate:after{
+    font-family: FontAwesome;
+    content: "\f00c";
+    outline: none;
+}
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.label_move_up_highlight{
+    transform: translateY(-24px);
+    font-size: 14px !important;
+    font-weight: bolder;
+}
+/* ================================================================================== FOOTER SECTION */
+#Section_Footer{
+    height: auto;
+    margin: 0;
+    padding: 0
+}
+#subSection_Sentence{
+    padding: 50px 50px;
+    background-color: var(--div_highlight);
+    color: white;
+    font-size: 3.5vw;
+    text-align: center;
+}
+#subSection_Info{
+    background-color: var(--contrast); 
+    padding: 30px 0;
+    padding-bottom: 0;
+}
+#subSection_Info .box{
+    padding: 25px 0;
+}
+#subSection_Info .title{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+#subSection_Info .body{
+    color: lightgray;
+    margin-top: 10px;
+}
+#subSection_Info .body li{
+    margin-bottom: 20px;
+}
+#subSection_Info .body li a{
+    text-decoration: none;
+    color: lightgray;
+}
+#subSection_Info .body li i{
+    color: var(--text_highlight);
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.socials{
+    word-spacing: 1.5vw;
+    padding-top: 10px;
+}
+.socials a{
+    color: var(--text_highlight);
+    text-decoration: none;
+}
+#subSection_Copyright{
+    background-color: var(--contrast);;
+    padding-bottom: 50px;
+    text-align: center;
+    color: white;
+    letter-spacing: 2px;
+    word-spacing: 2.5px
 }
 
-/* ================================================================================== FOOTER SECTION */
-#section_Footer {
-	padding-top:50px;
-	height:700px;
-	background-color: pink;
+/* ---------------------------------------------------------------------- Extra Small Screen (xs) */
+@media (max-width: 768px) {
+    #subSection_Sentence{
+        font-size: 4vw;
+        padding: 25px 50px;
+    }
+    #subSection_Info .box:nth-child(4) .body .socials{
+        word-spacing: 4vw;
+    }
+    #subSection_Info .box:nth-child(3){
+        padding-left: 5vw;
+    }
+    #subSection_Info .box:nth-child(4){
+        margin-bottom: 40px;
+    }
+    #section_Contact .container form .inputBox{
+        width: 94%;
+        margin-left: 2%;
+    }
+}
+
+/* ---------------------------------------------------------------------- Small Screen  (sm) */
+@media (min-width: 769px) {
+    #subSection_Sentence{
+        font-size: 4vw;
+        padding: 35px 50px;
+    }
+    #subSection_Info .box:nth-child(3){
+        padding-left: 0;
+    }
+    #subSection_Info .box:nth-child(4){
+        margin-bottom: 0;
+    }
+}
+
+/* ---------------------------------------------------------------------- Medium Screen (md) */
+@media (min-width: 992px) {
+    #subSection_Sentence{
+        font-size: 3.5vw;
+        padding: 50px 50px;
+    }
+    #subSection_Info .box:nth-child(1){
+       padding-right: 50px;
+   }
+}
+
+/* ---------------------------------------------------------------------- Large Screen  (lg) */
+@media (min-width: 1380px) {
+   #subSection_Info .box:nth-child(1){
+       padding-right: 50px;
+   }
 }
