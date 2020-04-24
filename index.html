@@ -12,15 +12,77 @@
 	<script src="https://kit.fontawesome.com/11b8901115.js"></script>
 	<!-- CSS Link -->
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<!-- Font Type Link -->
+	<link href="https://fonts.googleapis.com/css2?family=Candal&family=Gotu&display=swap" rel="stylesheet">
+	<!-- jQuery Code -->
+	<script>
+		$(document).ready(function() {
+			// SMOOTH SCROLLING
+		  	$("a").on('click', function(event) {
+			    // Make sure this.hash has a value before overriding default behavior
+			    if (this.hash !== "") {
+		     		// Prevent default anchor click behavior
+		     		event.preventDefault();
+				    // Store hash
+				    var hash = this.hash;
+				    // Using jQuery's animate() method to add smooth page scroll
+				    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+		      		$('html, body').animate({
+		        		scrollTop: $(hash).offset().top
+		      		}, 800, function(){
+			       		// Add hash (#) to URL when done scrolling (default click behavior)
+			        	window.location.hash = hash;
+		      		});
+		    	}
+		  	});
+
+		  	// FIXED NAVBAR AFTER USER SCROLLS TO CERTAIN POINT
+		  	$(document).scroll(function() {    
+			    var current_scrolled_lenght = $(document).scrollTop();
+			    var section_Home_Height = $('#section_Home').outerHeight();
+
+			    if (current_scrolled_lenght >= section_Home_Height) {
+			       $(".navbar").addClass("fixed_navbar");
+			    } else {
+			        $(".navbar").removeClass("fixed_navbar");
+			    }   
+			});
+
+			// CLOSING COLLAPSE MENU WHEN ITEM (FROM LIST) IS CLICKED ON 
+		    $('a').click(function() {
+		        $("#myNavbar").collapse('hide');
+		    });
+
+		    // WHEN COLLAPSE MENU IS CLICKED, PAGES SCROLLS TO SAID COLLAPSE MENU 
+		    $(".navbar-toggle").click(function (){
+                $('html, body').animate({
+                    scrollTop: $(".navbar").offset().top
+                }, 800);
+            });
+		});
+	</script>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
 	<!-- ------------------------------------------------------------------------------- HOME SECTION -->
 	<div id="section_Home" class="container-fluid">
-		<div class="col-xs-12 section_title">Home</div>
+		<div class="bg"></div>
+		<div class="bg bg2"></div>
+		<div class="bg bg3"></div>
+		<div class="col-md-8 col-sm-10 col-xs-12 content">
+		  	<h1 style="padding:0 20vmin;" class="col-xs-12">Hello, I'm <span style="color: var(--text_highlight)">Rouzaz Aamir Hashmi</span></h1>
+		  	<h1 style="padding-left: 1vmin;" class="col-xs-12">I am a Full Stack Flutter Developer</h1>
+		  	<div class="scroll_down_box">
+		  		<div class="scrolldown">
+		  			<span></span>
+		  			<span></span>
+		  			<span></span>
+		  		</div>
+		  	</div>
+		</div>
 	</div>
 
-	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="500">
+	<nav class="col-xs-12 navbar navbar-inverse" style="margin: 0;">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -44,27 +106,106 @@
 
 	<!-- ------------------------------------------------------------------------------- ABOUT SECTION -->
 	<div id="section_About" class="container-fluid">
-		<div class="col-xs-12 section_title">About</div>
+		<div class="col-xs-12 section_title">
+			<span style="color: var(--text_highlight);">&mdash;</span>
+			About
+			<span style="color: var(--text_highlight);">&mdash;</span>
+		</div>
+		<div class="why_choose_me">
+			<div class="card" onclick="void(0)">
+				<div class="face face1">
+					<div class="content">
+						<div class="icons"><i class="far fa-laugh-beam"></i></div>
+						<h3>Customer Satisfaction</h3>
+					</div>
+				</div>
+				<div class="face face2">
+					<div class="content">
+						<p>I belive in positive interaction and communication with the customer to bring their creative idea alive.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card" onclick="void(0)">
+				<div class="face face1">
+					<div class="content">
+						<div class="icons"><i class="fas fa-shield-alt"></i></div>
+						<h3>Advance App Security</h3>
+					</div>
+				</div>
+				<div class="face face2">
+					<div class="content">
+						<p>The need for security is the number one priority when designing your app. </p>
+					</div>
+				</div>
+			</div>
+			<div class="card" onclick="void(0)">
+				<div class="face face1">
+					<div class="content">
+						<div class="icons"><i class="fas fa-briefcase"></i></div>
+						<h3>30 Days Free Service</h3>
+					</div>
+				</div>
+				<div class="face face2">
+					<div class="content">
+						<p>The customer is provided with 30 days service for free, after the delivery of app.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card" onclick="void(0)">
+				<div class="face face1">
+					<div class="content">
+						<div class="icons"><i class="fas fa-cogs"></i></div>
+						<h3>High Quality Work</h3>
+					</div>
+				</div>
+				<div class="face face2">
+					<div class="content">
+						<p>The goal is not just to make an app but to bring high performance and efficency to create a dynamic app.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- ------------------------------------------------------------------------------- SERVICES SECTION -->
 	<div id="section_Services" class="container-fluid">
-		<div class="col-xs-12 section_title">Services</div>
+		<div class="col-xs-12 section_title">
+			<span style="color: var(--text_highlight);">&mdash;</span>
+			Services
+			<span style="color: var(--text_highlight);">&mdash;</span>
+		</div>
 	</div>
 
 	<!-- ------------------------------------------------------------------------------- PORTFOLIO SECTION -->
 	<div id="section_Portfolio" class="container-fluid">
-		<div class="col-xs-12 section_title">Portfolio</div>
+		<div class="col-xs-12 section_title">
+			<span style="color: var(--text_highlight);">&mdash;</span>
+			Portfolio
+			<span style="color: var(--text_highlight);">&mdash;</span>
+		</div>
 	</div>
 
 	<!-- ------------------------------------------------------------------------------- PRICE SECTION -->
 	<div id="section_Prices" class="container-fluid">
-		<div class="col-xs-12 section_title">Prices</div>
+		<div class="col-xs-12 section_title">
+			<span style="color: var(--text_highlight);">&mdash;</span>
+			Prices
+			<span style="color: var(--text_highlight);">&mdash;</span>
+		</div>
 	</div>
 
 	<!-- ------------------------------------------------------------------------------- CONTACT SECTION -->
 	<div id="section_Contact" class="container-fluid">
-		<div class="col-xs-12 section_title">Contact</div>
+		<div class="col-xs-12 section_title">
+			<span style="color: var(--text_highlight);">&mdash;</span>
+			Contact
+			<span style="color: var(--text_highlight);">&mdash;</span>
+		</div>
+	</div>
+
+	<!-- ------------------------------------------------------------------------------- FOOTER SECTION -->
+	<div id="section_Footer" class="container-fluid">
+		<div class="col-xs-12 section_title">Footer</div>
 	</div>
 </body>
 </html>

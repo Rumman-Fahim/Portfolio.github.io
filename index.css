@@ -1,7 +1,19 @@
-body {
-    position: relative; 
+:root {
+    --text_highlight: #66FCF1;
+    --div_highlight: #45A29E;
+    --contrast: #222;
+    --light: #EAEAEA;
+    --title_font: 'Candal', sans-serif;
+    --body_font: 'Gotu', sans-serif;
 }
-.affix {
+html,body {
+    position: relative; 
+    margin: 0;
+    padding: 0;
+    font-family: var(--body_font);
+}
+.fixed_navbar {
+	position: fixed;
     top:0;
     width: 100%;
     z-index: 9999 !important;
@@ -9,14 +21,239 @@ body {
 .navbar {
     margin-bottom: 0px;
 }
-
-.affix ~ .container-fluid {
-    position: relative;
-    top: 50px;
+li { 
+	list-style-type: none;
 }
-#section_Home {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
-#section_About {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
-#section_Services {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
-#section_Portfolio {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
-#section_Prices {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
-#section_Contact {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+.active a { 
+	background-color:  var(--div_highlight) !important; 
+}
+.icon-bar { 
+	background-color: var(--div_highlight) !important; 
+}
+.navbar-toggle{
+    background-color: transparent; 
+    border:none;
+    outline: none;
+}
+.section_title {
+    position: relative;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: 4px;
+    margin: 50px 0 50px 0;
+}
+/* ================================================================================== HOME SECTION */
+#section_Home {
+	padding-top:50px;
+	height: 92.5vh;
+	background-color: transparent;
+}
+/* -------------------------------------------- Background */
+#section_Home .bg {
+	animation:slide 3s ease-in-out infinite alternate;
+	background-image: linear-gradient(-60deg, #0B0C10 50%, #1F2833 50%);
+	bottom:0;
+	left:-50%;
+	opacity:.5;
+	position:fixed;
+	right:-50%;
+	top:0;
+	z-index:-1;
+}
+#section_Home .bg2 {
+	animation-direction:alternate-reverse;
+	animation-duration:4s;
+}
+#section_Home .bg3 {
+	animation-duration:5s;
+}
+@keyframes slide {
+    0% {
+        transform:translateX(-25%);
+    }
+    100% {
+        transform:translateX(25%);
+    }
+}
+/* -------------------------------------------- Text */
+#section_Home .content {
+	color: white;
+    font-family: var(--title_font);
+    position: relative;
+    text-align:center;
+    left:50%;
+    top: 50%;
+    transform:translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+}
+/* -------------------------------------------- Scroll down */
+#section_Home .content .scroll_down_box{
+	width: 100%;
+	height: 50px;
+    margin-top: 120px;
+    text-align: center;
+    margin-left: 10px;
+}
+#section_Home .content .scroll_down_box .scrolldown{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	margin-left: 50%;
+	transform: translateY(-80px) translateX(-50px) rotate(45deg);
+}
+#section_Home .content .scroll_down_box .scrolldown span{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-bottom: 2px solid var(--text_highlight);
+	border-right: 2px solid var(--text_highlight);
+	animation: animate 1.2s linear infinite;
+	opacity: 0;
+}
+#section_Home .content .scroll_down_box .scrolldown span:nth-child(1){
+	transform: translate(-15px,-15px);
+	animation-delay: -0.4s;
+}
+#section_Home .content .scroll_down_box .scrolldown span:nth-child(2){
+	transform: translate(0,0);
+	animation-delay: -0.2s;
+}
+#section_Home .content .scroll_down_box .scrolldown span:nth-child(3){
+	transform: translate(15px,15px);
+	animation-delay: 0s;
+}
+@keyframes animate{
+	0%{
+		top: -5px;
+		left: -5px;
+		opacity: 0;
+	}
+	25%{
+		top: 0px;
+		left: 0px;
+		opacity: 1;
+	}
+	50%,100%{
+		top: 5px;
+		left: 5px;
+		opacity: 0;
+	}
+}
+/* ================================================================================== ABOUT SECTION */
+#section_About {
+	padding-top:50px;
+	background: white;
+}
+/* -------------------------------------------- Why Choose Me */
+#section_About .why_choose_me {
+	width: 98%;
+    position: relative;
+    margin-left: 1%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: wrap;
+    margin-bottom: 100px;
+}
+#section_About .why_choose_me .card{
+    position: relative;
+    margin: 0 10px;
+    float: left;
+}
+#section_About .why_choose_me .card .face{
+    width: 280px;
+    transition: 0.5s;
+}
+#section_About .why_choose_me .card .face.face1{
+    height: 200px;
+    position: relative;
+    background: var(--contrast);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(50px);
+}
+#section_About .why_choose_me .card:hover .face.face1{
+    background: var(--div_highlight);
+    transform: translateY(0);
+}
+#section_About .why_choose_me .card .face.face1 .content{
+    opacity: 0.2;
+    transition: 0.5s;
+}
+#section_About .why_choose_me .card:hover .face.face1 .content{
+    opacity: 1;
+}
+#section_About .why_choose_me .card .face.face1 .content .icons{
+    font-size: 5em;
+    color: #fff;
+    text-align: center;
+}
+#section_About .why_choose_me .card .face.face1 .content h3{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #fff;
+    font-size: 1.2em;
+    text-align: center;
+}
+#section_About .why_choose_me .card .face.face2{
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(-50px);
+    height: 100px;
+    box-shadow: 2.5px 2.5px 20px rgba(0,0,0,0.1);
+}
+#section_About .why_choose_me .card:hover .face.face2{
+    transform: translateY(0);
+}
+#section_About .why_choose_me .card .face.face2 .content p{
+    margin: 0;
+    padding: 0;
+}
+/* -------------------------------------------- About Me */
+/* ================================================================================== SERVICES SECTION */
+#section_Services {
+	padding-top:50px;
+	height:700px;
+	background-color: #ff9800;
+}
+
+/* ================================================================================== PORTFOLIO SECTION */
+#section_Portfolio {
+	padding-top:50px;
+	height:700px;
+	background-color: #00bcd4;
+}
+
+/* ================================================================================== PRICE SECTION */
+#section_Prices {
+	padding-top:50px;
+	height:700px;
+	background-color: #009688;
+}
+
+/* ================================================================================== CONTACT SECTION */
+#section_Contact {
+	padding-top:50px;
+	height:700px;
+	background-color: #009688;
+}
+
+/* ================================================================================== FOOTER SECTION */
+#section_Footer {
+	padding-top:50px;
+	height:700px;
+	background-color: pink;
+}
