@@ -528,7 +528,7 @@ li {
     word-spacing: 2.5px
 }
 
-/* ---------------------------------------------------------------------- Extra Small Screen (xs) */
+/* ---------------------------------------------------------------------- X.Extra Small Screen (xxs) */
 @media (max-width: 400px) {
     #section_About .about_me .img_box .img{
 		width: 200px;
@@ -542,6 +542,10 @@ li {
     	font-size: 2em;
     	font-weight: bolder;
     	margin-bottom: 10px
+    }
+    #section_Contact .container form .inputBox{
+        width: 94%;
+        margin-left: 2%;
     }
 }
 /* ---------------------------------------------------------------------- Extra Small Screen (xs) */
@@ -559,10 +563,6 @@ li {
     #subSection_Info .box:nth-child(4){
         margin-bottom: 40px;
     }
-    #section_Contact .container form .inputBox{
-        width: 94%;
-        margin-left: 2%;
-    }
     #section_About .about_me .img_box .img{
 		width: 250px;
 		height: 300px;
@@ -575,6 +575,10 @@ li {
     	font-size: 2.5em;
     	font-weight: bolder;
     	margin-bottom: 10px;
+    }
+    #section_Contact .container form .inputBox{
+        width: 94%;
+        margin-left: 2%;
     }
 }
 
@@ -602,6 +606,13 @@ li {
     	font-size: 3em;
     	font-weight: bolder;
     	margin-bottom: 10px;
+    }
+    #section_Contact .container form .inputBox{
+        position: relative;
+        margin-bottom: 50px;
+        width: 47%;
+        float: left;
+        margin-left: 2%;
     }
 }
 
