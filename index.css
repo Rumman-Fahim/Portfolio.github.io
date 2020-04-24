@@ -230,16 +230,15 @@ li {
 #section_About .about_me{
 	padding: 50px 0;
 	display: flex;
+	flex-flow: wrap;
 	justify-content: center;
 	align-items: center;
-	flex-flow: wrap;
-	margin-bottom: 100px;
 }
 #section_About .about_me .info_box{
 	width: 450px;
-	height: 450px;
+	min-height: 450px;
 	padding: 30px 40px;
-	margin-left: 50px;
+	margin: 10px 15px;
 }
 #section_About .about_me .info_box .title{
 	font-size: 3em;
@@ -253,11 +252,12 @@ li {
 }
 /* IMAGE */
 #section_About .about_me .img_box{
-	width: 450px;
+	width: 400px;
 	height: 450px;
+	margin: 10px 15px;
 }
 #section_About .about_me .img_box .img{
-	width: 400px;
+	width: 350px;
 	height: 400px;
 }
 #section_About .about_me .img_box .img .your_image{
@@ -529,7 +529,18 @@ li {
 }
 
 /* ---------------------------------------------------------------------- Extra Small Screen (xs) */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
+    #section_About .about_me .img_box .img{
+		width: 250px;
+		height: 300px;
+	}
+	#section_About .about_me .img_box{
+		width: 300px;
+    	height: 350px;
+    }
+}
+/* ---------------------------------------------------------------------- Extra Small Screen (xs) */
+@media (min-width: 400px) {
     #subSection_Sentence{
         font-size: 4vw;
         padding: 25px 50px;
@@ -547,6 +558,14 @@ li {
         width: 94%;
         margin-left: 2%;
     }
+    #section_About .about_me .img_box{
+    	width: 350px;
+    	height: 400px;
+    }
+    #section_About .about_me .img_box .img{
+		width: 300px;
+		height: 350px;
+	}
 }
 
 /* ---------------------------------------------------------------------- Small Screen  (sm) */
@@ -561,6 +580,14 @@ li {
     #subSection_Info .box:nth-child(4){
         margin-bottom: 0;
     }
+    #section_About .about_me .img_box{
+    	width: 400px;
+    	height: 450px;
+    }
+    #section_About .about_me .img_box .img{
+		width: 350px;
+		height: 400px;
+	}
 }
 
 /* ---------------------------------------------------------------------- Medium Screen (md) */
@@ -572,6 +599,14 @@ li {
     #subSection_Info .box:nth-child(1){
        padding-right: 50px;
    }
+   #section_About .about_me .img_box{
+    	width: 400px;
+    	height: 450px
+    }
+    #section_About .about_me .img_box .img{
+		width: 350px;
+		height: 400px;
+	}
 }
 
 /* ---------------------------------------------------------------------- Large Screen  (lg) */
