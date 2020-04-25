@@ -17,6 +17,12 @@
 	<!-- jQuery Code -->
 	<script>
 		$(document).ready(function() {
+			// PRICE CARD BACKSIDE
+			$(".btn_card").click(function() {
+				$(this).prev(".transform").toggleClass('card_back_transform');
+			  	$(this).find('.btn_card_helper').toggleClass('change_btn_card_look');
+			});
+
 			// SMOOTH SCROLLING
 		  	$("a").on('click', function(event) {
 			    // Make sure this.hash has a value before overriding default behavior
@@ -232,7 +238,7 @@
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-	<!-- ------------------------------------------------------------------------------- HOME SECTION -->
+	<!-- ------------------------------------------------------------------------------- HOME -->
 	<div id="section_Home" class="container-fluid">
 		<div class="bg"></div>
 		<div class="bg bg2"></div>
@@ -250,6 +256,7 @@
 		</div>
 	</div>
 
+	<!-- ------------------------------------------------------------------------------- NAVBAR -->
 	<nav class="col-xs-12 navbar navbar-inverse" style="margin: 0;">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -272,7 +279,7 @@
 		</div>
 	</nav>    
 
-	<!-- ------------------------------------------------------------------------------- ABOUT SECTION -->
+	<!-- ------------------------------------------------------------------------------- ABOUT -->
 	<div id="section_About" class="container-fluid">
 		<div class="col-xs-12 section_title">
 			<span style="color: var(--text_highlight);">&mdash;</span>
@@ -339,7 +346,7 @@
 			<!-- IMAGE -->
 			<div class="img_box">
 				<div class="img">
-					<img class="img-responsive your_image" src="images/you.jpg">
+					<img class="img-responsive your_image" src="images/you1.jpg">
 					<div class="img-responsive square"></div>
 					<img class="img-responsive bg_img" src="images/img_bg2.jpg">
 				</div>
@@ -357,10 +364,12 @@
 			</div>
 		</div>
 		<!-- SKILLS -->
-		<div class="col-xs-12 skills"></div>
+		<div class="col-xs-12 skills">
+			
+		</div>
 	</div>
 
-	<!-- ------------------------------------------------------------------------------- SERVICES SECTION -->
+	<!-- ------------------------------------------------------------------------------- SERVICES -->
 	<div id="section_Services" class="container-fluid">
 		<div class="col-xs-12 section_title">
 			<span style="color: var(--text_highlight);">&mdash;</span>
@@ -369,7 +378,7 @@
 		</div>
 	</div>
 
-	<!-- ------------------------------------------------------------------------------- PORTFOLIO SECTION -->
+	<!-- ------------------------------------------------------------------------------- PORTFOLIO -->
 	<div id="section_Portfolio" class="container-fluid">
 		<div class="col-xs-12 section_title">
 			<span style="color: var(--text_highlight);">&mdash;</span>
@@ -378,16 +387,135 @@
 		</div>
 	</div>
 
-	<!-- ------------------------------------------------------------------------------- PRICE SECTION -->
+	<!-- ------------------------------------------------------------------------------- PRICE -->
 	<div id="section_Prices" class="container-fluid">
-		<div class="col-xs-12 section_title">
-			<span style="color: var(--text_highlight);">&mdash;</span>
-			Prices
-			<span style="color: var(--text_highlight);">&mdash;</span>
+		<div class="Prices_container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div onclick="void(0)" class="Prices_card text-center">
+						<div class="Prices_title">
+							<i class="fa fa-paper-plane" aria-hidden="true"></i>
+							<h2>Basic</h2>
+						</div>
+						<div class="Prices_price">
+							<h4><sup>$</sup>70</h4>
+						</div>
+						<div class="Prices_option">
+							<ul>
+								<li><i class="fas fa-times" aria-hidden="true"></i>&nbsp;&nbsp;App Submission</li>
+								<li><i class="fas fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Include Source Code</li>
+								<li><i class="fas fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Ad Network Integration</li>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;App Icon</li>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Splash Screen</li>
+							</ul>
+						</div>
+						<div class="card_back transform">
+							<div class="package_info">
+								<h3>
+									<span style="color: var(--text_highlight);">&mdash;&nbsp;&nbsp;</span>Package Info
+									<span style="color: var(--text_highlight);">&nbsp;&nbsp;&mdash;</span>
+								</h3>
+								<span>A simple Application with 2 - 6 screens. It contains API integration along with Splash as a complementary bonus !</span>
+							</div>
+							<div class="revision">
+								<i class="fa fa-edit"></i>
+								<span>&nbsp;&nbsp;Revisions&nbsp;&#x2666;&nbsp;</span>
+								<span>3</span>
+							</div>
+							<div class="delievery">
+								<i class="fas fa-shipping-fast"></i>
+								<span>&nbsp;&nbsp;Delivery&nbsp;&#x2666;&nbsp;</span>
+								<span>5 Days</span>
+							</div>
+						</div>
+						<a class="btn_card"><span class="btn_card_helper">Back</span>More Info</a>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div onclick="void(0)" class="Prices_card text-center">
+						<div class="Prices_title">
+							<i class="fa fa-plane" aria-hidden="true" style="transform: rotate(-45deg);"></i>
+							<h2>Standard</h2>
+						</div>
+						<div class="Prices_price">
+							<h4><sup>$</sup>165</h4>
+						</div>
+						<div class="Prices_option">
+							<ul>
+								<li><i class="fas fa-times" aria-hidden="true"></i>&nbsp;&nbsp;App Submission</li>
+								<li><i class="fas fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Include Source Code</li>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Ad Network Integration</li>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;App Icon</li>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Splash Screen</li>
+							</ul>
+						</div>
+						<div class="card_back transform">
+							<div class="package_info">
+								<h3>
+									<span style="color: var(--text_highlight);">&mdash;&nbsp;&nbsp;</span>Package Info
+									<span style="color: var(--text_highlight);">&nbsp;&nbsp;&mdash;</span>
+								</h3>
+								<span>A Blue-ribbon medium sized App with attractive UI. Customer will also be provided with login, sign-up, integration, Firebase and Backend</span>
+							</div>
+							<div class="revision">
+								<i class="fa fa-edit"></i>
+								<span>&nbsp;&nbsp;Revisions&nbsp;&#x2666;&nbsp;</span>
+								<span>unlimited</span>
+							</div>
+							<div class="delievery">
+								<i class="fas fa-shipping-fast"></i>
+								<span>&nbsp;&nbsp;Delivery&nbsp;&#x2666;&nbsp;</span>
+								<span>14 Days</span>
+							</div>
+						</div>
+						<a class="btn_card"><span class="btn_card_helper">Back</span>More Info</a>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div onclick="void(0)" class="Prices_card text-center">
+						<div class="Prices_title">
+							<i class="fa fa-rocket" aria-hidden="true"></i>
+							<h2>Premium</h2>
+						</div>
+						<div class="Prices_price">
+							<h4><sup>$</sup>310</h4>
+						</div>
+						<div class="Prices_option">
+							<ul>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;App Submission</li>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Include Source Code</li>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Ad Network Integration</li>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;App Icon</li>
+								<li><i class="fas fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Splash Screen</li>
+							</ul>
+						</div>
+						<div class="card_back transform">
+							<div class="package_info">
+								<h3>
+									<span style="color: var(--text_highlight);">&mdash;&nbsp;&nbsp;</span>Package Info
+									<span style="color: var(--text_highlight);">&nbsp;&nbsp;&mdash;</span>
+								</h3>
+								<span>A Firebase authentication with sleek animation and the finest UI. Also 1 month maintenance will be provided as bonus !</span>
+							</div>
+							<div class="revision">
+								<i class="fa fa-edit"></i>
+								<span>&nbsp;&nbsp;Revisions&nbsp;&#x2666;&nbsp;</span>
+								<span>unlimited</span>
+							</div>
+							<div class="delievery">
+								<i class="fas fa-shipping-fast"></i>
+								<span>&nbsp;&nbsp;Delivery&nbsp;&#x2666;&nbsp;</span>
+								<span>21 Days</span>
+							</div>
+						</div>
+						<a class="btn_card"><span class="btn_card_helper">Back</span>More Info</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<!-- ------------------------------------------------------------------------------- CONTACT SECTION -->
+	<!-- ------------------------------------------------------------------------------- CONTACT -->
 	<div id="section_Contact" class="container-fluid">
 		<div class="col-xs-12 section_title">
 			<span style="color: var(--text_highlight);">&mdash;</span>
@@ -428,7 +556,7 @@
 		</div>
 	</div>
 
-	<!-- ------------------------------------------------------------------------------- FOOTER SECTION -->
+	<!-- ------------------------------------------------------------------------------- FOOTER -->
 	<div id="Section_Footer" class="col-xs-12">
 		<!-- Sentence -->
 		<div class="col-xs-12" id="subSection_Sentence">Bringing Your Vision to Life</div>
