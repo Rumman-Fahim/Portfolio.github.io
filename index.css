@@ -940,7 +940,7 @@ li {
 .socials a{
     color: var(--text_highlight);
     text-decoration: none;
-    display: block;
+    display: inline;
     margin-bottom: 20px;
 }
 #subSection_Copyright{
@@ -1043,7 +1043,7 @@ li {
         grid-column: 3;
     }
     #subSection_Info .footer_box:nth-child(4) .socials a{
-        display: block;
+        display: inline;
     }
     #subSection_Info .footer_box:nth-child(3){
         padding-left: 20px;
@@ -1077,7 +1077,7 @@ li {
         grid-column: 4;
     }
     #subSection_Info .footer_box:nth-child(4) .socials a{
-        display: block;
+        display: inline;
     }
     #subSection_Info .footer_box:nth-child(3){
         padding-left: 20px;
