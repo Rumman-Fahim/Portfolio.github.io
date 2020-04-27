@@ -16,12 +16,17 @@
 	<script src="images/jquery.easypiechart.js"></script>
 	<!-- Font Awesome Link -->
 	<script src="https://kit.fontawesome.com/11b8901115.js"></script>
+	<!-- Animate.js Link -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<!-- WOW Animation Link -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 	<!-- CSS Links -->
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<!-- Font Type Link -->
 	<link href="https://fonts.googleapis.com/css2?family=Candal&family=Gotu&display=swap" rel="stylesheet">
 	<script>
 		$(document).ready(function() {
+			new WOW().init();
 			// ================================================================================================= SMOOTH SCROLLING
 			$("a").on('click', function(event) {
 				if (this.hash !== "") {
@@ -423,9 +428,9 @@
 			<div class="bg bg2"></div>
 			<div class="bg bg3"></div>
 			<div class="col-md-8 col-sm-10 col-xs-12 content">
-			  	<h1 style="padding:0 20vmin;" class="col-xs-12">Hello, I'm <span style="color: var(--text_highlight)">Rouzaz Aamir Hashmi</span></h1>
-			  	<h1 style="padding-left: 1vmin;" class="col-xs-12">I am a Full Stack Flutter Developer</h1>
-			  	<a class="scroll_down_box" href="#section_About">
+			  	<h1 style="padding:0 20vmin;" class="wow fadeInLeft col-xs-12">Hello, I'm <span style="color: var(--text_highlight)">Rouzaz Aamir Hashmi</span></h1>
+			  	<h1 style="padding-left: 1vmin;" class="wow fadeInRight col-xs-12">I am a Full Stack Flutter Developer</h1>
+			  	<a class="scroll_down_box"href="#section_About">
 			  		<div class="scrolldown">
 			  			<span></span>
 			  			<span></span>
@@ -460,14 +465,14 @@
 	<!-- ------------------------------------------------------------------------------- ABOUT SECTION -->
 	<div id="section_About" class="container-fluid">
 		<!-- TITLE -->
-		<div class="col-xs-12 section_title">
+		<div class="wow fadeIn col-xs-12 section_title">
 			<span style="color: var(--text_highlight);">&mdash;</span>
 			About
 			<span style="color: var(--text_highlight);">&mdash;</span>
 		</div>
 		<!-- WHY CHOOSE ME -->
 		<div class="why_choose_me">
-			<div class="card" onclick="void(0)">
+			<div class="wow fadeInUp card" data-wow-duration="0.8s" data-wow-delay="0.25s" onclick="void(0)">
 				<div class="face face1">
 					<div class="content">
 						<div class="icons"><i class="far fa-laugh-beam"></i></div>
@@ -480,7 +485,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="card" onclick="void(0)">
+			<div class="wow fadeInUp card" data-wow-duration="0.8s" data-wow-delay="0.45s" onclick="void(0)">
 				<div class="face face1">
 					<div class="content">
 						<div class="icons"><i class="fas fa-shield-alt"></i></div>
@@ -493,7 +498,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="card" onclick="void(0)">
+			<div class="wow fadeInUp card" data-wow-duration="0.8s" data-wow-delay="0.65s" onclick="void(0)">
 				<div class="face face1">
 					<div class="content">
 						<div class="icons"><i class="fas fa-briefcase"></i></div>
@@ -506,7 +511,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="card" onclick="void(0)">
+			<div class="wow fadeInUp card" data-wow-duration="0.8s" data-wow-delay="0.85s" onclick="void(0)">
 				<div class="face face1">
 					<div class="content">
 						<div class="icons"><i class="fas fa-cogs"></i></div>
@@ -525,20 +530,20 @@
 			<!-- IMAGE -->
 			<div class="img_box">
 				<div class="img">
-					<img style="box-shadow: 5px 5px 15px rgba(0,0,0,.1);" class="img-responsive your_image" src="images/you1.jpeg">
-					<div class="img-responsive square"></div>
-					<img style="box-shadow: 5px 5px 15px rgba(0,0,0,.05);" class="img-responsive bg_img" src="images/img_bg2.jpg">
+					<img style="box-shadow: 5px 5px 15px rgba(0,0,0,.1);" class="wow fadeIn img-responsive your_image" src="images/you1.jpeg" data-wow-delay="0.8s">
+					<div class="wow fadeIn img-responsive square" data-wow-delay="0.4s"></div>
+					<img style="box-shadow: 5px 5px 15px rgba(0,0,0,.05);" class="wow fadeIn img-responsive bg_img" src="images/img_bg2.jpg" data-wow-delay="0.2s">
 				</div>
 			</div>
 
 			<!-- TEXT -->
 			<div class="info_box">
-				<div class="title">
+				<div class="wow fadeInLeft title" data-wow-delay="1s">
 					Who am 
 					<span style="color: var(--div_highlight)"> I </span> 
 					?
 				</div>
-				<div class="text_body">
+				<div class="wow fadeInRight text_body" data-wow-delay="1.2s">
 					<p>
 						Hi!. I am an App Developer with speciality in developing IOS and native Android apps using flutter. I have an experience of more than 1+ years during which I focused on refining and enhancing my skills. I build the applications according to Google's Guidelines to ensure product quality, hence your app will never get banned !
 					</p>
@@ -550,7 +555,7 @@
 						, all services will be provided on time !.
 					</p>
 				</div>
-				<div class="name">
+				<div class="wow fadeInLeft name" data-wow-delay="1.3s">
 					<span style="color: var(--div_highlight)">&mdash; Rouzaz Aamir Hashmi</span>
 				</div>
 			</div>
@@ -560,12 +565,12 @@
 	<!-- ------------------------------------------------------------------------------- PORTFOLIO SECTION -->
 	<div id="section_Skills" class="container-fluid">
 		<!-- TITLE -->
-		<div class="col-xs-12 section_title">
+		<div class="wow fadeIn col-xs-12 section_title" data-wow-delay="0.2s">
 			<span style="color: var(--text_highlight);">&mdash;</span>
 			<span style="color: black;"> Skills </span>
 			<span style="color: var(--text_highlight);">&mdash;</span>
 		</div>
-		<div class="container-fluid">
+		<div class="wow fadeInUp container-fluid" data-wow-delay="0.3s">
 		    <div class="row">
 		        <div id="owl-example" class="owl-carousel">
 		            <div class="box">
@@ -612,14 +617,14 @@
 	<!-- ------------------------------------------------------------------------------- PORTFOLIO SECTION -->
 	<div id="section_Portfolio" class="container-fluid">
 		<!-- TITLE -->
-		<div class="col-xs-12 section_title">
+		<div class="wow fadeIn col-xs-12 section_title" data-wow-delay="0.2s">
 			<span style="color: var(--text_highlight);">&mdash;</span>
 			Portfolio
 			<span style="color: var(--text_highlight);">&mdash;</span>
 		</div>
 		<!-- GALLERY -->
 		<div class="gallery">
-			<div class="gallery_buttons grid-container">
+			<div class="wow fadeInDown gallery_buttons grid-container" data-wow-delay="0.3s">
 				<button class="all_btn">all</button>
 				<button class="Flutter_btn">Flutter</button>
 				<button class="Firebase_btn">Firebase</button>
@@ -627,7 +632,7 @@
 				<button class="Bootstrap_btn">Bootstrap</button>
 				<button class="JQuery_btn">JQuery</button>
 			</div>
-			<div class="gallery_box">
+			<div class="wow fadeInUp gallery_box">
 				<a target="_blank" href="https://play.google.com/store/apps/details?id=com.blood.bloodgroup">
 					<div class="gallery_img">
 						<img src="images/and.PNG" alt="Android">
@@ -689,7 +694,7 @@
 					</div>
 				</a>
 			</div>
-			<div id="lightbox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div id="lightbox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"aria-hidden="true">
 			    <div class="modal-dialog">
 			      <div class="modal-content">
 			        <div class="modal-header">
@@ -707,39 +712,39 @@
 
 	<!-- ------------------------------------------------------------------------------- CONTACT SECTION -->
 	<div id="section_Contact" class="container-fluid">
-		<div class="col-xs-12 section_title">
+		<div class="wow fadeIn col-xs-12 section_title" data-wow-delay="0.1s">
 			<span style="color: var(--text_highlight);">&mdash;</span>
 			Contact
 			<span style="color: var(--text_highlight);">&mdash;</span>
 		</div>
 		<div class="container">
 			<form id="contact_form">
-				<div class="inputBox">
+				<div class="wow fadeInLeft inputBox" data-wow-delay="0.2s">
 					<input autocomplete="off" type="text" id="first_name" name="first_name">
 					<span>First name</span>
 					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="first_name_err"></div>
 				</div>
-				<div class="inputBox">
+				<div class="wow fadeInRight inputBox" data-wow-delay="0.2s">
 					<input autocomplete="off" type="text" id="last_name" name="last_name">
 					<span>Last name</span>
 					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="last_name_err"></div>
 				</div>
-				<div class="inputBox">
+				<div class="wow fadeInLeft inputBox" data-wow-delay="0.2s">
 					<input autocomplete="off" type="number" id="phone_number" name="phone_number">
 					<span>Phone Number</span>
 					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="phone_number_err"></div>
 				</div>
-				<div class="inputBox">
+				<div class="wow fadeInRight inputBox" data-wow-delay="0.2s">
 					<input autocomplete="off" type="email" id="email" name="email">
 					<span>E-mail Address</span>
 					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="email_err"></div>
 				</div>
-				<div id="textarea_box">
+				<div id="textarea_box" class="wow fadeInLeft" data-wow-delay="0.2s">
 					<textarea autocomplete="off" id="message" name="message"></textarea>
 					<span>Message</span>
 					<div style="color: red; font-size: 12px;margin-top: 10px;font-weight: bolder;" id="message_err"></div>
 				</div>
-				<div class="inputBox">
+				<div class="wow fadeInRight inputBox" data-wow-delay="0.2s">
 					<button id="submit_btn" name="submit_btn" class="btn" type="submit" form="contact_form"></button>
 				</div>
 			</form>
@@ -749,7 +754,7 @@
 	<!-- ------------------------------------------------------------------------------- FOOTER SECTION -->
 	<div id="Section_Footer" class="col-xs-12">
 		<!-- Sentence -->
-		<div class="col-xs-12" id="subSection_Sentence">Bringing Your Vision to Life</div>
+		<div class="wow slideInUp col-xs-12" id="subSection_Sentence">Bringing Your Vision to Life</div>
 		<!-- Info -->
 		<div class="col-xs-12" id="subSection_Info">
 			<div class="footer_box">
